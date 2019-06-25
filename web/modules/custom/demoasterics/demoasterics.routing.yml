@@ -1,0 +1,21 @@
+demoasterics.suscribe:
+    path: '/demoasterics/suscribe/{taxonomy_term}'
+    defaults:
+        _controller: '\Drupal\demoasterics\Controller\SuscribeController::suscribe'
+    requirements:
+        _entity_access: 'taxonomy_term.view'
+        taxonomy_term: \d+
+demoasterics.unsuscribe:
+    path: '/demoasterics/unsuscribe/{taxonomy_term}'
+    defaults:
+        _controller: '\Drupal\demoasterics\Controller\SuscribeController::unsuscribe'
+    requirements:
+        _entity_access: 'taxonomy_term.view'
+        taxonomy_term: \d+
+demoasterics.aprove:
+    path: '/demoasterics/aprove/{sid}'
+    defaults:
+        _controller: '\Drupal\demoasterics\Controller\AproveController::aprove'
+    requirements:
+        _permission: 'access content'
+    

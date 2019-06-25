@@ -1,0 +1,5 @@
+services:
+  demoasterics.alerts:
+    class: Drupal\demoasterics\Alerts\AlertManager
+  demoasterics.timeline:
+    class: Drupal\demoasterics\Timeline\TimelineService

@@ -1,0 +1,49 @@
+uuid: ceabb55a-1da5-4589-89b1-8455f505bca1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.aladin.field_aladin_fov
+    - field.field.paragraph.aladin.field_aladin_survey
+    - paragraphs.paragraphs_type.aladin
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_initial_configuration:
+      children:
+        - field_aladin_survey
+        - field_aladin_fov
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Initial params to create an Aladin Lite container'
+        required_fields: true
+      label: 'Initial Configuration'
+id: paragraph.aladin.default
+targetEntityType: paragraph
+bundle: aladin
+mode: default
+content:
+  field_aladin_fov:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_aladin_survey:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

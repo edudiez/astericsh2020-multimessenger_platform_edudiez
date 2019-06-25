@@ -1,0 +1,9 @@
+uuid: 2a107f4f-2f57-4163-875e-825d4058ff9a
+langcode: en
+status: true
+dependencies: {  }
+id: aladin
+label: Aladin
+icon_uuid: null
+description: 'Paragraph amb integració de vista Aladin'
+behavior_plugins: {  }

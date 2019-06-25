@@ -1,0 +1,23 @@
+uuid: 27b47928-527d-4846-ae86-4df5d496f1d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.views_eva.field_pr_display
+    - paragraphs.paragraphs_type.views_eva
+  module:
+    - view_mode_selector
+id: paragraph.views_eva.default
+targetEntityType: paragraph
+bundle: views_eva
+mode: default
+content:
+  field_pr_display:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: view_mode_selector
+    region: content
+hidden:
+  news_entity_view_1: true

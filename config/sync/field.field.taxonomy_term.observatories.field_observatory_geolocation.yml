@@ -1,0 +1,21 @@
+uuid: c09d1c95-7a8b-4014-8c45-6aae74962881
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_geolocation
+    - taxonomy.vocabulary.observatories
+  module:
+    - geolocation
+id: taxonomy_term.observatories.field_observatory_geolocation
+field_name: field_observatory_geolocation
+entity_type: taxonomy_term
+bundle: observatories
+label: Geolocation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

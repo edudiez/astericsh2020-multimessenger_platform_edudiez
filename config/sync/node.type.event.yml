@@ -1,0 +1,18 @@
+uuid: 1a54874e-e0af-405f-b78f-58019d6630a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Event
+type: event
+description: 'Un contingut tipus Event es un acte localitzat en unes dates y unes hores'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

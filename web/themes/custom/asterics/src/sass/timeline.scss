@@ -1,0 +1,206 @@
+@import "mixins.scss";
+
+.view-timeline.container {
+    margin-bottom:60px;
+}
+
+#timeline {
+    display:block;
+    position:relative;
+    background-color:rgba(255,255,255,0.1);
+    border-top:5px solid $blanc;
+    .timeline-row {
+        display: flex;
+        height: 125px;
+        border-bottom:5px solid $blanc;
+        .observatory-name {
+            flex-basis: 16%;
+            padding: 0 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .value {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+        .schedule {
+            position:relative;
+            flex-basis:84%;
+            .observations-wrapper {
+                position:absolute;
+                width:100%;
+                padding: 0 26px;
+                table.wrapper {
+                    width:100%;
+                    height: 120px;
+                    td {vertical-align: top;}
+                    .past {
+                        background-color:rgba(255,255,255,0.1);
+                    }
+                    .items-wrapper {
+                        padding-top:20px;
+                        .item {
+                            padding: 0 10px;
+                            .elipse {
+                                border:1px solid #e63924;
+                                border-radius:30px;
+                                height:40px;
+                            }
+                            .made {
+                                height: 35px;
+                                cursor:pointer;
+                                .made-wrapper {
+                                    width:100%;
+                                }
+                                .made-item {
+                                    display:flex;
+                                    .made-left {
+                                        border-top-left-radius: 5px;
+                                        border-top-right-radius: 5px;
+                                        background-color:#f2644c;
+                                        height: 35px;
+                                        position: relative;
+                                        left: 3px;
+                                        width: 5px;
+                                        top: 2px;
+
+                                    }
+                                    .made-center {
+                                        padding-top:10px;
+                                        td {
+                                            height: 25px;
+                                            background: rgba(242,100,76,1);
+                                            background: -moz-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                                            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242,100,76,1)), color-stop(25%, rgba(242,100,76,1)), color-stop(75%, rgba(83,214,249,1)), color-stop(100%, rgba(83,214,249,1)));
+                                            background: -webkit-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                                            background: -o-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                                            background: -ms-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                                            background: linear-gradient(to right, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2644c', endColorstr='#53d6f9', GradientType=1 );
+                                        }
+                                    }
+                                    .made-right {
+                                        border-top-left-radius: 5px;
+                                        border-top-right-radius: 5px;
+                                        background-color: #53d6f9;
+                                        height: 35px;
+                                        position: relative;
+                                        right: 3px;
+                                        width: 5px;
+                                        top: 2px;
+                                    }
+                                }
+                                &:hover{
+                                    .made-item {
+                                        .made-left {
+                                            background-color:#f2644c;
+                                        }
+                                        .made-center {
+                                            td {
+                                                background: rgba(242,100,76,1);
+                                                background: -moz-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 5%, rgba(83,214,249,1) 95%, rgba(83,214,249,1) 100%);
+                                                background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242,100,76,1)), color-stop(5%, rgba(242,100,76,1)), color-stop(95%, rgba(83,214,249,1)), color-stop(100%, rgba(83,214,249,1)));
+                                                background: -webkit-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 5%, rgba(83,214,249,1) 95%, rgba(83,214,249,1) 100%);
+                                                background: -o-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 5%, rgba(83,214,249,1) 95%, rgba(83,214,249,1) 100%);
+                                                background: -ms-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 5%, rgba(83,214,249,1) 95%, rgba(83,214,249,1) 100%);
+                                                background: linear-gradient(to right, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 5%, rgba(83,214,249,1) 95%, rgba(83,214,249,1) 100%);
+                                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2644c', endColorstr='#53d6f9', GradientType=1 );
+                                            }
+                                        }
+                                        .made-right {
+                                            background-color: #53d6f9;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .line {
+                border:2px solid $blanc;
+                border-radius:10px;
+            }
+            .calendar {
+                padding: 60px 36px 0;
+                .months {
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:flex-end;
+                    height: 42px;
+                    .month {
+                        font-size:14px;
+                    }
+                }
+            }
+        }
+    }
+    .legend {
+        background-color:$blanc;
+        color:$negre;
+        display: flex;
+        height: 120px;
+        justify-content:space-evenly;
+        padding:30px 0;
+        .made-wrapper {
+            width:100%;
+            .elipse {
+                border:1px solid #e63924;
+                border-radius:30px;
+                height:40px;
+
+            }
+            
+        }
+        .made {
+            height: 35px;
+
+            .made-item {
+                display:flex;
+                .made-left {
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    background-color:#f2644c;
+                    height: 35px;
+                    position: relative;
+                    left: 3px;
+                    width: 5px;
+                    top: 2px;
+
+                }
+                .made-center {
+                    padding-top:10px;
+                    max-width:95%;
+                    td {
+                        height: 25px;
+                        background: rgba(242,100,76,1);
+                        background: -moz-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242,100,76,1)), color-stop(25%, rgba(242,100,76,1)), color-stop(75%, rgba(83,214,249,1)), color-stop(100%, rgba(83,214,249,1)));
+                        background: -webkit-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                        background: -o-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                        background: -ms-linear-gradient(left, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                        background: linear-gradient(to right, rgba(242,100,76,1) 0%, rgba(242,100,76,1) 25%, rgba(83,214,249,1) 75%, rgba(83,214,249,1) 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2644c', endColorstr='#53d6f9', GradientType=1 );
+                    }
+                }
+                .made-right {
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    background-color: #53d6f9;
+                    height: 35px;
+                    position: relative;
+                    right: 3px;
+                    width: 5px;
+                    top: 2px;
+                }
+            }
+            .visibility {
+                padding: 0 60px;
+            }
+
+        }
+
+
+    }
+}

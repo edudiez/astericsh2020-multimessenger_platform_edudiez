@@ -1,0 +1,233 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+//* ASIGNACIO DIRECTA DE ROLE PROFESIONAL *//
+function demoasterics_user_presave(EntityInterface $entity) {
+    if ($entity->isNew()) {
+        $entity->addRole('profesional');
+    }
+}
+
+function demoasterics_link_alter(&$item) {
+    /**
+     * The URL of the link.
+     *
+     * @var Url
+     */
+    $url = $item['url'];
+
+    // Return early where possible.
+    if ($url->isExternal()) {
+        return;
+    }
+    else {
+        $current_user = \Drupal::currentUser();
+        $roles = $current_user->getRoles(TRUE);
+        if (in_array('profesional', $roles)) {
+            switch ($item['text']) {
+                case 'Create Observatory': // AIXO ES MOLT CHUNGU HA DIT EL JOSE
+                    $user = user_load($current_user->id());
+                    if ($user->get('field_user_observatory')->get(0)) {
+                        $item['options']['attributes']['class'][] = 'disabled';
+                    }
+                    else {
+                        $item['options']['attributes']['class'][] = 'highlighted';
+                    }
+                    break;
+                case 'Events': // AIXO ES MOLT CHUNGU HA DIT EL JOSE
+                    $user = user_load($current_user->id());
+                    if (!$user->get('field_user_observatory')->get(0)) {
+                        $item['options']['attributes']['class'][] = 'disabled';
+                    }
+                    break;
+            }
+        }
+        else {
+            return;
+        }
+    }
+}
+
+//************************* CREACIO DE OBSERVATORI PER USUARI PROFESSIONAL ********************************************//
+function demoasterics_form_taxonomy_term_observatories_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles(TRUE);
+
+    if (in_array('profesional', $roles)) {
+
+        $form['relations']['#access'] = FALSE;
+        $form['field_observatory_observacio']['#access'] = FALSE;
+
+        foreach (array_keys($form['actions']) as $action) {
+            if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+                $form['actions'][$action]['#submit'][] = 'demoasterics_form_taxonomy_term_submit_handler';
+            }
+        }
+    }
+}
+
+function demoasterics_form_taxonomy_term_submit_handler(array $form, FormStateInterface $form_state) {
+
+    // Create a new user
+    $values = $form_state->getValues();
+
+    // Load the current user.
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $user->set('field_user_observatory', $values['tid']);
+    $user->save();
+
+    $url = \Drupal\Core\Url::fromRoute('entity.user.canonical', ['user' => $user->id()]);
+    return $form_state->setRedirectUrl($url);
+}
+
+//************************* CREACIO DE OBSERVATORI PER USUARI PROFESSIONAL ********************************************//
+//************************* CREACIO DE EVENT PER USUARI PROFESSIONAL ********************************************//
+function demoasterics_form_node_event_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    $current_user = \Drupal::currentUser();
+    $roles = $current_user->getRoles(TRUE);
+    if (in_array('profesional', $roles)) {
+        $form['field_event_category_n']['#access'] = FALSE;
+        $form['field_event_place_n']['#access'] = FALSE;
+        foreach (array_keys($form['actions']) as $action) {
+            if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+                $form['actions'][$action]['#submit'][] = 'demoasterics_form_node_event_submit_handler';
+            }
+        }
+    }
+}
+
+function demoasterics_form_node_event_submit_handler(array $form, FormStateInterface $form_state) {
+
+    // Create a new user
+    $values = $form_state->getValues();
+
+    // Load the current user.
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $observatory = $user->get('field_user_observatory');
+    $observatory = $observatory->referencedEntities();
+    $event = node_load($values['nid']);
+    $event->set('field_event_category_n', $observatory);
+    $event->set('field_event_place_n', $observatory);
+    $event->save();
+
+    $url = \Drupal\Core\Url::fromRoute('entity.user.canonical', ['user' => $user->id()]);
+    return $form_state->setRedirectUrl($url);
+}
+
+//********************************** FORMULARI DE CERCA DEL MAPA OBSERVATORIS************************************//
+function demoasterics_form_webform_submission_search_for_observation_add_form_alter(array &$form, FormStateInterface $form_state) {
+
+    unset($form['actions']['submit']['#validate']);
+    unset($form['#validate']);
+    unset($form['#submit']);
+    $form['actions']['submit']['#submit'] = array('demoasterics_form_search_observation_submit');
+}
+
+function demoasterics_form_search_observation_submit(array $form, FormStateInterface $form_state) {
+    $values = $form_state->getValues();
+    $response = new RedirectResponse('/obervatories-map?observatory');
+    if ($values['observatory'] != '') {
+        $response = new RedirectResponse('/obervatories-map?observatory=' . $values['observatory']);
+    }
+    $request = \Drupal::request();
+    // Save the session so things like messages get saved.
+    $request->getSession()->save();
+    $response->prepare($request);
+    // Make sure to trigger kernel events.
+    \Drupal::service('kernel')->terminate($request, $response);
+    $response->send();
+}
+
+//******************************* SUSCRIPCIO / DESUSCRIPCIO OBSERVATORY ************************************//
+function demoasterics_preprocess_taxonomy_term(&$variables) {
+
+    $suscribe = '<div class="suscribe">If you subscribe to this observatroy you will recieve alerts from it <a href="#">Subscribe</a></div>';
+    $unsuscribe = '<div class="unsuscribe">You are subscribed to the events and alerts of this observatory <a href="#">Unsubscribe</a></div>';
+    switch ($variables['view_mode']) {
+        case 'user_page_view':
+            $suscribe = '<div class="suscribe"><a href="#">Subscribe</a></div>';
+            $unsuscribe = '<div class="unsuscribe"><a href="#">Unsubscribe</a></div>';
+        break;
+    }
+
+    $variables['suscription']['#markup'] = $suscribe;
+    foreach ($variables['term']->get('field_observatory_suscribers')->getValue() as $uid) {
+        if ($uid['target_id'] == \Drupal::currentUser()->id()) {
+            $variables['suscription']['#markup'] = $unsuscribe;
+        }
+        break;
+    }
+}
+
+//***************************** PETICIO OBSERVACIO ENVIA MAIL A SUSCRIPTORS *******************************//
+function demoasterics_form_webform_submission_observacion_add_form_alter(&$form, FormStateInterface $form_state) {
+    array_unshift($form['actions']['submit']['#submit'], 'demoasterics_form_submission_observacion_submit_handler');
+}
+
+function demoasterics_form_submission_observacion_submit_handler(array $form, FormStateInterface $form_state) {
+    $values = $form_state->getValues();
+    if ($values['observatory']) {
+        // LLISTA DE MAILING A ENVIAR
+        $mailing = array();
+        // PRIMER USUARI QUE POSEEIX OBSERVATORI
+        $connection = \Drupal::database();
+        $query = $connection->select('users_field_data', 'u');
+        $query->join('user__field_user_observatory', 'o', 'o.entity_id = u.uid');
+        $result = $query->condition('o.field_user_observatory_target_id', $values['observatory'])
+            ->fields('u', array('mail'))
+            ->execute()
+            ->fetchAll();
+        if ($result) {
+            $mailing[] = $result[0]->mail;
+        }
+        // DESPRES ELS SUSCRITS
+        $query = $connection->select('users_field_data', 'u');
+        $query->join('taxonomy_term__field_observatory_suscribers', 's', 'u.uid = s.field_observatory_suscribers_target_id');
+        $result = $query->condition('s.entity_id', $values['observatory'])
+            ->fields('u', array('mail'))
+            ->execute()
+            ->fetchAll();
+        foreach ($result as $mail) {
+            $mailing[] = $mail->mail;
+        }
+        $observatory = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($values['observatory']);
+        $mailManager = \Drupal::service('plugin.manager.mail');
+        foreach ($mailing as $mail) {
+            $module = 'demoasterics';
+            $key = 'scheduled_observation';
+            $to = $mail;
+            $params['message'] = '<p>A petition of a scheduled observation has been made with this values.</p>';
+            $params['message'] .= '<p>RA:' . $values['ra'] . '</p>';
+            $params['message'] .= '<p>DEC:' . $values['dec'] . '</p>';
+            $params['message'] .= '<p>FROM:' . $values['from'] . '</p>';
+            $params['message'] .= '<p>TO:' . $values['to'] . '</p>';
+            $params['observatory'] = $observatory->name->value;
+            $langcode = 'en';
+            $send = TRUE;
+            $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+        }
+    }
+}
+
+function demoasterics_mail($key, &$message, $params) {
+    $options = array(
+      'langcode' => $message['langcode'],
+    );
+    switch ($key) {
+        case 'scheduled_observation':
+            $message['from'] = \Drupal::config('system.site')->get('mail');
+            $message['subject'] = t('[Asterics] [@observatory] A petition of Scheduled Observation has been made', array('@observatory' => $params['observatory']));
+            $message['body'][0] = '<html><body>' . $params['message'] . '</body></html>';
+            $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+            break;
+        case 'aproved_observation':
+            $message['from'] = \Drupal::config('system.site')->get('mail');
+            $message['subject'] = t('[Asterics] [@observatory] A Scheduled Observation has been aproved', array('@observatory' => $params['observatory']));
+            $message['body'][0] = '<html><body>' . $params['message'] . '</body></html>';
+            $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+            break;
+    }
+}

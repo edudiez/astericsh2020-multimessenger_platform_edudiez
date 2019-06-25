@@ -1,0 +1,33 @@
+uuid: 9abd8cfe-0288-46df-8d5e-c612be23dc78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.principal.field_pr_display
+    - field.field.paragraph.principal.field_pr_paragraphs
+    - paragraphs.paragraphs_type.principal
+  module:
+    - entity_reference_revisions
+    - view_mode_selector
+id: paragraph.principal.default
+targetEntityType: paragraph
+bundle: principal
+mode: default
+content:
+  field_pr_display:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: view_mode_selector
+    region: content
+  field_pr_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

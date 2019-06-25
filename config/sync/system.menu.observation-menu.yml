@@ -1,0 +1,8 @@
+uuid: 006541d5-7c6c-4597-b1ee-af18f2095ed3
+langcode: en
+status: true
+dependencies: {  }
+id: observation-menu
+label: 'Observation Menu'
+description: 'Menu element for ask for an observation'
+locked: false

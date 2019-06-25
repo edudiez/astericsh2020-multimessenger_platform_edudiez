@@ -1,0 +1,30 @@
+uuid: e2d35384-cabb-4bbf-829d-497349ba32c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+    - user
+  theme:
+    - asterics
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: asterics_help
+theme: asterics
+region: content
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

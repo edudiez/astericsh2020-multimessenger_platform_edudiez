@@ -1,0 +1,10 @@
+uuid: c4d99548-712f-4d3d-9b0e-1cb51d0ffc36
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.visualizacion_1
+label: 'Visualización 1'
+targetEntityType: node
+cache: true

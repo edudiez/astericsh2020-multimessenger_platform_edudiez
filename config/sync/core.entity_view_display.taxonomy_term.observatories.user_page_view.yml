@@ -1,0 +1,76 @@
+uuid: c66c54ef-f6f9-442a-af7c-3c94300358e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.user_page_view
+    - field.field.taxonomy_term.observatories.field_observatory_address
+    - field.field.taxonomy_term.observatories.field_observatory_fotografia
+    - field.field.taxonomy_term.observatories.field_observatory_geolocation
+    - field.field.taxonomy_term.observatories.field_observatory_observacio
+    - field.field.taxonomy_term.observatories.field_observatory_phone
+    - field.field.taxonomy_term.observatories.field_observatory_rrss
+    - field.field.taxonomy_term.observatories.field_observatory_website
+    - image.style.large
+    - taxonomy.vocabulary.observatories
+  module:
+    - image
+    - link
+    - text
+id: taxonomy_term.observatories.user_page_view
+targetEntityType: taxonomy_term
+bundle: observatories
+mode: user_page_view
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_observatory_address:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_observatory_fotografia:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_observatory_phone:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_observatory_website:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 255
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  news_entity_view_2:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_observatory_geolocation: true
+  field_observatory_observacio: true
+  field_observatory_rrss: true
+  observation_list_entity_view_1: true

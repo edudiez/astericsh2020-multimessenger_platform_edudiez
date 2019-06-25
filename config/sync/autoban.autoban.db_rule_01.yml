@@ -1,0 +1,10 @@
+uuid: b1b05e16-cf05-42d6-b166-58d747ff5f6d
+langcode: en
+status: true
+dependencies: {  }
+id: db_rule_01
+type: 'page not found'
+message: 'wp-*'
+referer: ''
+threshold: '3'
+provider: ban

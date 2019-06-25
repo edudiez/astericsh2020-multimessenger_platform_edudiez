@@ -1,0 +1,8 @@
+uuid: 009e7231-d413-4888-9744-0c9e55dd4c1e
+langcode: en
+status: true
+dependencies: {  }
+id: teaser_news
+label: 'Teaser News'
+locked: false
+pattern: 'F d\, Y'

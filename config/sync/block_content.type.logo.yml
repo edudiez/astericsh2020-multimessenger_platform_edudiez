@@ -1,0 +1,8 @@
+uuid: a74f4e2f-323d-4c07-a13e-48293b9694ec
+langcode: en
+status: true
+dependencies: {  }
+id: logo
+label: Logo
+revision: 0
+description: 'Block per a logo Asterics'

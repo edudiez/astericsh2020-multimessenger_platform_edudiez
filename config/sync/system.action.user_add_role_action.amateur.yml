@@ -1,0 +1,14 @@
+uuid: 52c45504-03a5-4dd1-bd60-205b293a25d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.amateur
+  module:
+    - user
+id: user_add_role_action.amateur
+label: 'Add the Amateur role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: amateur

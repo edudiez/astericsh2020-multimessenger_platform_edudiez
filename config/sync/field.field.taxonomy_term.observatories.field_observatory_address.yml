@@ -1,0 +1,21 @@
+uuid: d11da2f3-83f9-41fb-817e-71c8fa02b3b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_address
+    - taxonomy.vocabulary.observatories
+  module:
+    - text
+id: taxonomy_term.observatories.field_observatory_address
+field_name: field_observatory_address
+entity_type: taxonomy_term
+bundle: observatories
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

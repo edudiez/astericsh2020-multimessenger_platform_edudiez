@@ -1,0 +1,14 @@
+@import "mixins.scss";
+
+/*------------------------------------*
+  Estilos base para un flexslider
+------------------------------------*/
+
+ol.flex-control-nav {
+  list-style: none; text-align: left; padding: 0;
+  li {display: inline-block; margin: 0 5px;}
+  a {
+    display: inline-block; width: 13px; height: 13px; overflow: hidden; text-indent: -999px; border-radius: 100%; background-color: transparent; transition: .5s; border: 1px solid white;
+    &.flex-active {background-color: white;}
+  }
+}

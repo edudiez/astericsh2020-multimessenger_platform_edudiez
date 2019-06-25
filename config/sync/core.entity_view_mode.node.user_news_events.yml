@@ -1,0 +1,10 @@
+uuid: d6cd28c0-4bb9-40f0-9390-1e4f34f3f0a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.user_news_events
+label: 'User News Events'
+targetEntityType: node
+cache: true

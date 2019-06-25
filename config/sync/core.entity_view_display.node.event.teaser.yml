@@ -1,0 +1,59 @@
+uuid: b39475e5-38e0-4e7e-936d-fbd26daea541
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event.body
+    - field.field.node.event.field_event_category_n
+    - field.field.node.event.field_event_date_n
+    - field.field.node.event.field_event_place_n
+    - field.field.node.event.field_event_schedule_n
+    - node.type.event
+  module:
+    - datetime
+    - datetime_range
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  field_event_category_n:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_event_date_n:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: event_teaser_date
+    third_party_settings: {  }
+  field_event_place_n:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_event_schedule_n:
+    type: daterange_default
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: schedule_event_teaser
+      separator: '-'
+    third_party_settings: {  }
+hidden:
+  body: true
+  links: true

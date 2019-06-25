@@ -1,0 +1,8 @@
+uuid: 09b14760-ba05-4485-b6e6-c041085501ed
+langcode: en
+status: true
+dependencies: {  }
+id: schedule_event_teaser
+label: 'Schedule Event Teaser'
+locked: false
+pattern: 'h:i'

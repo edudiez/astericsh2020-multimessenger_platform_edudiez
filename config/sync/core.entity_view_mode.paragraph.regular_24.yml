@@ -1,0 +1,10 @@
+uuid: 83bb1459-a27a-466a-9e7c-ff63bab7f337
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.regular_24
+label: 'Regular 24'
+targetEntityType: paragraph
+cache: true

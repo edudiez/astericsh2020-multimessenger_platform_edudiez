@@ -1,0 +1,13 @@
+footer[role="contentinfo"] { height: 80px; font-weight: 300; font-size: 14px; text-align: center; padding: 30px 0; background-color: #071c47; }
+
+footer[role="contentinfo"] #block-copyright, footer[role="contentinfo"] #block-footer { display: inline-block; }
+
+footer[role="contentinfo"] #block-footer ul { padding: 0 2px; }
+
+footer[role="contentinfo"] #block-footer ul li { display: inline; }
+
+footer[role="contentinfo"] #block-footer ul li:after { content: "|"; position: relative; bottom: 1px; padding: 0 2px; }
+
+footer[role="contentinfo"] #block-footer ul li:last-of-type { border-right: none; }
+
+/*# sourceMappingURL=maps/footer.css.map */

@@ -1,0 +1,40 @@
+uuid: c674facd-d716-483e-afef-6d7cf86eb182
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pr_display
+    - paragraphs.paragraphs_type.text
+  module:
+    - view_mode_selector
+id: paragraph.text.field_pr_display
+field_name: field_pr_display
+entity_type: paragraph
+bundle: text
+label: Display
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings:
+  view_modes:
+    default:
+      enable: 0
+      hide_title: 0
+      icon: {  }
+    extrabold_40:
+      enable: 0
+      hide_title: 0
+      icon: {  }
+    regular_20:
+      enable: 0
+      hide_title: 0
+      icon: {  }
+    regular_24:
+      enable: 0
+      hide_title: 0
+      icon: {  }
+field_type: view_mode_selector

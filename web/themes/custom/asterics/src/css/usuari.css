@@ -1,0 +1,145 @@
+.user-page .dialog-off-canvas-main-canvas:before { content: ""; display: block; position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; bottom: 180px; background: url("../images/nathan-anderson-108136-unsplash.jpg") repeat center/cover; }
+
+.user-page header { background-color: transparent; }
+
+.user-page main { background-color: transparent; }
+
+.profesional { /* HEADER */ /* TABS */ /* FORMS */ }
+
+.profesional .user-header .container { display: -webkit-box; display: -ms-flexbox; display: flex; padding: 85px; }
+
+.profesional .user-header .container .field_user_photo img { border-radius: 120px; max-width: 170px; border: 2px solid #fff; }
+
+.profesional .user-header .container .user-name { padding-left: 55px; }
+
+.profesional .user-header .container .user-name h1 { display: inline-block; }
+
+.profesional .user-header .container .user-name a { font-size: 14px; margin: 0 20px; border: 1px solid #fff; padding: 10px 20px; border-radius: 20px; position: relative; bottom: 6px; }
+
+.profesional .user-header .container .user-name a:hover { color: #f2644c; border: 1px solid #f2644c; }
+
+.profesional .user-header .container .user-name .field_user_description { padding: 36px 0; font-size: 24px; font-weight: 300; }
+
+.profesional #usertabs { border: none; background: transparent; border-radius: 0; padding: 0; margin: 0; font-family: 'Open Sans'; }
+
+.profesional #usertabs > ul:nth-child(1) { border: none; background: transparent; max-width: 1200px; margin: 0 auto; }
+
+.profesional #usertabs > ul:nth-child(1) li { background-color: #c93a27; border-color: #c93a27; border: none; margin: 0; outline: none; margin-right: 18px; margin-bottom: -1px; }
+
+.profesional #usertabs > ul:nth-child(1) li a { font-weight: 600; font-size: 18px; color: #fff; padding: 18px 28px; }
+
+.profesional #usertabs > ul:nth-child(1) li:hover { background-color: #53d6f9; border-color: #53d6f9; }
+
+.profesional #usertabs > ul:nth-child(1) li.ui-tabs-active { background-color: #f2644c; border-color: #f2644c; }
+
+.profesional #usertabs #observatories, .profesional #usertabs #observations, .profesional #usertabs #newsevents { border: none; background: #f2644c; border-radius: 0; padding: 0; margin: 0; }
+
+.profesional #usertabs #observatories > ul:nth-child(1), .profesional #usertabs #observations > ul:nth-child(1), .profesional #usertabs #newsevents > ul:nth-child(1) { border: none; background: transparent; max-width: 1200px; margin: 0 auto; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li, .profesional #usertabs #observations > ul:nth-child(1) li, .profesional #usertabs #newsevents > ul:nth-child(1) li { background-color: #f2644c; border-color: #f2644c; border: none; margin: 0; margin-right: 18px; padding: 18px 28px; text-align: center; white-space: normal; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li a, .profesional #usertabs #observations > ul:nth-child(1) li a, .profesional #usertabs #newsevents > ul:nth-child(1) li a { font-weight: 400; font-size: 18px; color: #fff; padding: 0; text-align: center; position: relative; padding-bottom: 5px; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li a:after, .profesional #usertabs #observations > ul:nth-child(1) li a:after, .profesional #usertabs #newsevents > ul:nth-child(1) li a:after { content: ''; display: inline-block; width: 0; height: 2px; background-color: white; position: absolute; bottom: 0; left: 0; -webkit-transition: .5s; transition: .5s; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li:hover, .profesional #usertabs #observatories > ul:nth-child(1) li.ui-tabs-active, .profesional #usertabs #observations > ul:nth-child(1) li:hover, .profesional #usertabs #observations > ul:nth-child(1) li.ui-tabs-active, .profesional #usertabs #newsevents > ul:nth-child(1) li:hover, .profesional #usertabs #newsevents > ul:nth-child(1) li.ui-tabs-active { background-color: #f2644c; border-color: #f2644c; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li:hover a, .profesional #usertabs #observatories > ul:nth-child(1) li.ui-tabs-active a, .profesional #usertabs #observations > ul:nth-child(1) li:hover a, .profesional #usertabs #observations > ul:nth-child(1) li.ui-tabs-active a, .profesional #usertabs #newsevents > ul:nth-child(1) li:hover a, .profesional #usertabs #newsevents > ul:nth-child(1) li.ui-tabs-active a { border: none; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li:hover a:after, .profesional #usertabs #observatories > ul:nth-child(1) li.ui-tabs-active a:after, .profesional #usertabs #observations > ul:nth-child(1) li:hover a:after, .profesional #usertabs #observations > ul:nth-child(1) li.ui-tabs-active a:after, .profesional #usertabs #newsevents > ul:nth-child(1) li:hover a:after, .profesional #usertabs #newsevents > ul:nth-child(1) li.ui-tabs-active a:after { width: 100%; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li.button, .profesional #usertabs #observations > ul:nth-child(1) li.button, .profesional #usertabs #newsevents > ul:nth-child(1) li.button { float: right; padding: 0; position: relative; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li.button button, .profesional #usertabs #observatories > ul:nth-child(1) li.button a, .profesional #usertabs #observations > ul:nth-child(1) li.button button, .profesional #usertabs #observations > ul:nth-child(1) li.button a, .profesional #usertabs #newsevents > ul:nth-child(1) li.button button, .profesional #usertabs #newsevents > ul:nth-child(1) li.button a { border: 1px solid #fff; outline: none; padding: 15px 30px; border-radius: 30px; background-color: #f2644c; color: white; text-transform: uppercase; display: inline-block; font-weight: 300; font-size: 14px; margin-top: 4px; cursor: pointer; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li.button a, .profesional #usertabs #observations > ul:nth-child(1) li.button a, .profesional #usertabs #newsevents > ul:nth-child(1) li.button a { margin-top: 2px; }
+
+.profesional #usertabs #observatories .ui-tabs-panel, .profesional #usertabs #observations .ui-tabs-panel, .profesional #usertabs #newsevents .ui-tabs-panel { min-height: 450px; background-color: #fff; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li.button { float: right; padding: 0; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li.button button { background: url(../images/antena.svg) no-repeat 15px 0 transparent; padding: 15px 30px 15px 60px; }
+
+.profesional #usertabs #observatories > ul:nth-child(1) li.button button:hover { background-color: #53d6f9; }
+
+.profesional #usertabs #observations > ul:nth-child(1) li.button { float: right; padding: 0; }
+
+.profesional #usertabs #observations > ul:nth-child(1) li.button button { background: url(../images/espiral.svg) no-repeat 15px 0 transparent; padding: 15px 30px 15px 60px; }
+
+.profesional #usertabs #observations > ul:nth-child(1) li.button button:hover { background-color: #53d6f9; }
+
+.profesional #usertabs #observations > ul:nth-child(1) li.button a { width: 300px; text-align: left; }
+
+.profesional #usertabs #newsevents > ul:nth-child(1) li.button a { background: url(../images/carpeta.svg) no-repeat 20px 5px transparent; padding: 15px 30px 15px 60px; background-size: 27px; }
+
+.profesional #usertabs #newsevents > ul:nth-child(1) li.button a:after { content: none !important; }
+
+.profesional #usertabs #newsevents > ul:nth-child(1) li.button a:hover { background-color: #53d6f9; }
+
+.profesional #forms-wrapper { position: absolute; top: 0px; z-index: 99; background: rgba(0, 0, 0, 0.85); width: 100%; height: auto; display: none; }
+
+.profesional #forms-wrapper form { width: 800px; margin: 200px auto 60px; }
+
+.profesional #forms-wrapper .field-multiple-drag { display: none !important; }
+
+.profesional #forms-wrapper .paragraph-type-title { display: none; }
+
+.profesional #forms-wrapper .description { font-size: 14px; }
+
+.profesional #forms-wrapper .close { background: url(../images/tancar-blanc.svg) no-repeat 0 0 transparent; width: 30px; height: 30px; position: absolute; top: 80px; right: 80px; background-size: 30px; cursor: pointer; opacity: 0.8; -webkit-transition: 0.3s; transition: 0.3s; }
+
+.profesional #forms-wrapper .close:hover { opacity: 1; }
+
+.profesional #forms-wrapper .form-item label { font-size: 20px; color: #53d6f9; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid #53d6f9; display: block; }
+
+.profesional #forms-wrapper .group-box { margin-top: 40px; }
+
+.profesional #forms-wrapper .group-box .js-form-type-managed-file .description { margin-top: 10px; display: inline-block; border: 1px solid white; padding: 10px; }
+
+.profesional #forms-wrapper .group-box .image-widget input.form-file, .profesional #forms-wrapper .group-box .image-widget input.button { display: inline-block; vertical-align: middle; width: auto; padding: 10px 25px; border-radius: 20px; color: white; text-transform: uppercase; font-family: 'rob_l'; cursor: pointer; left: 20px; position: relative; }
+
+.profesional #forms-wrapper .text-full { border: 1px solid #fff; background: transparent; outline: none; color: #fff; }
+
+.profesional #forms-wrapper input[type="url"] { border: 1px solid #fff; background: transparent; outline: none; color: #fff; padding: 12px 15px; font-size: 20px; }
+
+.profesional #forms-wrapper .text-full { padding: 12px 15px; font-size: 20px; }
+
+.profesional #forms-wrapper .canvas-field-observatory-geolocation { border: none; padding: 6px 0 20px 0; }
+
+.profesional #forms-wrapper .canvas-field-observatory-geolocation legend { width: 100%; font-size: 20px; color: #53d6f9; padding-bottom: 12px; margin-bottom: 12px; display: block; border-bottom: 1px solid #53d6f9; }
+
+.profesional #forms-wrapper .location { color: #000; }
+
+.profesional #forms-wrapper .filter-wrapper { display: none; }
+
+.profesional #forms-wrapper .tabledrag-toggle-weight-wrapper { display: none; }
+
+.profesional #forms-wrapper table.field-multiple-table { width: 100%; }
+
+.profesional #forms-wrapper table.field-multiple-table h4 { font-size: 20px; color: #53d6f9; padding-bottom: 12px; margin-bottom: 12px; display: block; text-align: left; border-bottom: 1px solid #53d6f9; }
+
+.profesional #forms-wrapper table.field-multiple-table select { padding: 5px 8px; min-width: 200px; background-color: #6a7791; outline: none; cursor: pointer; color: #fff; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+
+.profesional #newevent .text-full, .profesional #newevent input[type="url"], .profesional #newevent .form-date, .profesional #newevent .form-time { border: 1px solid #000; background: transparent; outline: none; color: #000; padding: 10px 15px; font-size: 20px; }
+
+.profesional #newevent .field-edit-link { display: none; }
+
+.profesional #newevent fieldset { border: 0; padding: 0; }
+
+.profesional #newevent legend { display: none; }
+
+.profesional #newevent .filter-wrapper, .profesional #newevent .tabledrag-toggle-weight-wrapper { display: none; }
+
+.profesional #newevent table.field-multiple-table { width: 100%; }
+
+.profesional #newevent table.field-multiple-table thead { display: none; }
+
+.profesional #newevent table.field-multiple-table .field-multiple-drag { display: none; }
+
+.profesional #newevent table.field-multiple-table h4 { display: none; font-size: 20px; color: #53d6f9; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid #53d6f9; display: block; text-align: left; }
+
+.profesional #newevent table.field-multiple-table select { padding: 10px 30px; background-color: #f2644c; color: #fff; }
+
+.profesional #newevent .description { display: none; }
+
+/*# sourceMappingURL=maps/usuari.css.map */

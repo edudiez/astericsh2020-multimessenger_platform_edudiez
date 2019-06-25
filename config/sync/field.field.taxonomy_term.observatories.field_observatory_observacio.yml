@@ -1,0 +1,32 @@
+uuid: 57ec9342-561f-45ef-a1b2-b0d66cd4c9f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_observacio
+    - taxonomy.vocabulary.observatories
+    - webform.webform.observacion
+  module:
+    - webform
+id: taxonomy_term.observatories.field_observatory_observacio
+field_name: field_observatory_observacio
+entity_type: taxonomy_term
+bundle: observatories
+label: 'Ask for Observation'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+    target_uuid: 1904497d-b639-4efa-a748-964ea6c402d0
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

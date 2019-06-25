@@ -1,0 +1,9 @@
+uuid: e5354442-341d-4caa-a8ce-0b68a2f2db8f
+langcode: en
+status: true
+dependencies: {  }
+id: development_backups_directory
+label: 'Development Backups Directory'
+type: Directory
+config:
+  directory: 'private://backup_migrate/development'

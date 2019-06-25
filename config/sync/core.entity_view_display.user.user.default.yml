@@ -1,0 +1,50 @@
+uuid: 3b446b4f-3a98-4417-8095-7b83ad71092c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_user_description
+    - field.field.user.user.field_user_observatory
+    - field.field.user.user.field_user_photo
+    - image.style.medium
+  module:
+    - svg_image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_user_description:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_user_observatory:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_user_photo:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  member_for: true

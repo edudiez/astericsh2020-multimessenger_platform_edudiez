@@ -1,0 +1,9 @@
+uuid: 2f36e4d3-08ef-4d06-8da2-1cb1c1a6a74c
+langcode: en
+status: true
+dependencies: {  }
+id: views_eva
+label: 'Views EVA'
+icon_uuid: null
+description: 'Paragraph per a EVAs'
+behavior_plugins: {  }

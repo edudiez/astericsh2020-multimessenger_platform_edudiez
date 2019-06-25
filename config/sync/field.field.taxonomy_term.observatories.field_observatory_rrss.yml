@@ -1,0 +1,46 @@
+uuid: d9289c31-85f9-481f-b351-c43d312316d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_rrss
+    - paragraphs.paragraphs_type.rrss_link_item
+    - taxonomy.vocabulary.observatories
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.observatories.field_observatory_rrss
+field_name: field_observatory_rrss
+entity_type: taxonomy_term
+bundle: observatories
+label: 'Redes Sociales'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      rrss_link_item: rrss_link_item
+    target_bundles_drag_drop:
+      aladin:
+        weight: 7
+        enabled: false
+      link:
+        weight: 8
+        enabled: false
+      principal:
+        weight: 9
+        enabled: false
+      rrss_link_item:
+        enabled: true
+        weight: 10
+      text:
+        weight: 11
+        enabled: false
+      views_eva:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

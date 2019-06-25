@@ -1,0 +1,29 @@
+uuid: d633b041-4844-4327-a8cb-0bcf81ff1c99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_place_n
+    - node.type.event
+    - taxonomy.vocabulary.observatories
+id: node.event.field_event_place_n
+field_name: field_event_place_n
+entity_type: node
+bundle: event
+label: Place
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      observatories: observatories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

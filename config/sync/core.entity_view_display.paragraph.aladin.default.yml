@@ -1,0 +1,31 @@
+uuid: eaced844-ff34-4307-9a43-4a077415b924
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.aladin.field_aladin_fov
+    - field.field.paragraph.aladin.field_aladin_survey
+    - paragraphs.paragraphs_type.aladin
+id: paragraph.aladin.default
+targetEntityType: paragraph
+bundle: aladin
+mode: default
+content:
+  field_aladin_fov:
+    weight: 1
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_aladin_survey:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

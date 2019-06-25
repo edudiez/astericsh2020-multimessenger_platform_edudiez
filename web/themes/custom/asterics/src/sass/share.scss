@@ -1,0 +1,14 @@
+@import "mixins.scss";
+
+.share {
+	display: inline-block; margin-top: 10px;
+	p {display:inline-block; margin:0 20px 0 0; vertical-align:middle; font-size:16px; width: auto;}
+	.a2a_kit {display:inline-block; vertical-align:middle;
+		.a2a_svg {background:transparent!important;
+			path { fill:white;}
+		}
+	}
+	&.black {
+		.a2a_kit .a2a_svg path {fill: black;}
+	}
+}

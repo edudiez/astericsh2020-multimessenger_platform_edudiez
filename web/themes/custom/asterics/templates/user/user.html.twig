@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{ attributes.addClass('profesional', view_mode) }}>
+    {% if content %}
+        <div id="forms-wrapper"><div class="close"></div>{{ observatory_form }}</div>
+        <div class="user-header">
+        <div class="container">
+            {{ content.field_user_photo }}
+            <div class="user-name">
+            <h1 class="extrabold-40">{{ user.name.value }}</h1>
+            <a href="/db_member/{{ user.uid.value }}/edit?destination=/db_member/{{ user.uid.value }}">Edit</a>
+            {{ content.field_user_description }}
+            </div>
+        </div>
+        </div>
+        <div id="usertabs" class="ui-tabs">
+            <ul>
+                <li><a href="#observatories">Observatories</a></li>
+                <li><a href="#observations">Observations</a></li>
+                <li><a href="#newsevents">News & Events</a></li>
+            </ul>
+            <div id="observatories">
+                <ul class="main-tabs-nav">
+                    <li><a href="#following">Subscriptions ({{ following }})</a></li>
+                    <li><a href="#observatories-list">Observatories ({{ all_observatories }})</a></li>
+                        {% if user.field_user_observatory.value %}
+                        <li><a href="#myobservatory">My Observatory</a></li>
+                        {% else %}
+                        <li class="button"><button id="newobservatori">New Observatory</button></li>
+                        {% endif %}
+                </ul>
+                <div id="following">{{ subscribed_list }}</div>
+                <div id="observatories-list">{{ observatories_list }}</div>
+                {% if user.field_user_observatory.value %}
+                    <div id="myobservatory">{{ my_observatory }}</div>
+                {% endif %}
+            </div>
+            <div id="observations">
+                <ul>
+                    <li><a href="#demandades">Observations demanded ({{ total_observations_askedto }})</a></li>
+                    <li><a href="#demanades">Observations asked to me ({{ total_observations_askedfor }})</a></li>
+                    <li class="button">
+                        <button id="askobervation">Ask for a coordinated observation</button>
+                        <div id="observation-form-wrapper">{{ observation_form }}</div>
+                    </li>
+                </ul>
+                <div id="demandades">{{ observations_askedto }}</div>
+                <div id="demanades">{{ observations_askedfor }}</div>
+            </div>
+            <div id="newsevents">
+                <ul>
+                    <li><a href="#myevents">My events ({{ total_myevents }})</a></li>
+                    <li class="button"><a href="#newevent">New Event</a></li>
+                </ul>
+                <div id="myevents">{{ my_events }}</div>
+                <div id="newevent">{{ event_form }}</div>
+            </div>
+        </div>
+    {% endif %}
+</article>

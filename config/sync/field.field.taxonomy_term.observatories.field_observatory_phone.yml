@@ -1,0 +1,19 @@
+uuid: aace70e8-d75e-4cbd-9ef2-3b8e21f95692
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_phone
+    - taxonomy.vocabulary.observatories
+id: taxonomy_term.observatories.field_observatory_phone
+field_name: field_observatory_phone
+entity_type: taxonomy_term
+bundle: observatories
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

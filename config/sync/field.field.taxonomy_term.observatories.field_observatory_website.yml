@@ -1,0 +1,23 @@
+uuid: 959a7405-da6a-43e3-a350-291c4ef2ba89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_website
+    - taxonomy.vocabulary.observatories
+  module:
+    - link
+id: taxonomy_term.observatories.field_observatory_website
+field_name: field_observatory_website
+entity_type: taxonomy_term
+bundle: observatories
+label: WebSite
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

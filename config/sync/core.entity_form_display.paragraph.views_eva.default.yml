@@ -1,0 +1,24 @@
+uuid: 3d0c3c7d-c2f9-42ef-a5a8-7a45985ac7ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.views_eva.field_pr_display
+    - paragraphs.paragraphs_type.views_eva
+  module:
+    - view_mode_selector
+id: paragraph.views_eva.default
+targetEntityType: paragraph
+bundle: views_eva
+mode: default
+content:
+  field_pr_display:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: view_mode_selector_radios
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,17 @@
+uuid: ca6b4509-ae62-494b-8b90-b788854f4954
+langcode: en
+status: true
+dependencies: {  }
+id: profesional
+label: Profesional
+weight: 3
+is_admin: null
+permissions:
+  - 'create event content'
+  - 'create terms in observatories'
+  - 'delete any webform submission'
+  - 'delete own event content'
+  - 'delete own new content'
+  - 'edit own event content'
+  - 'edit own new content'
+  - 'edit terms in observatories'

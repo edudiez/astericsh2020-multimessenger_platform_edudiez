@@ -1,0 +1,197 @@
+@import "mixins.scss";
+
+main {
+    background-color:$blaufons;
+    min-height:calc( 100vh - 200px );
+    .paragraph--view-mode--home-superior:before {
+        background-image: url(../images/assets-01.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 56px;
+        right: 20%;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .paragraph--view-mode--home-superior {
+        padding:45px 0;
+        .paragraph--type--text {
+            text-align:left;
+            width:55%;
+            float:right;
+            clear:both;
+            padding-right:15%;
+            margin-bottom:106px;
+        }
+        .paragraph--view-mode--news {
+            clear:both;
+            text-align:left;
+            padding:120px 0 45px 0;
+            position: relative;
+        }
+        .paragraph--type--link {text-align: center;}
+    }
+    .paragraph--view-mode--home-inferior:before {
+        background-image: url(../images/assets-02.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: right;
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 130px;
+        width: 50%;
+        height: 100%;
+        z-index: 1;
+
+    }
+    .paragraph--view-mode--home-inferior {
+        position: relative;
+        background:$blanc;
+        color:$blaufons;
+        text-align:center;
+        padding:50px 0 10px 0;
+    }
+    #block-link-home-observation-form {
+        padding:50px 0;
+        text-align:center;
+        color:$negre;
+        p {
+            font-weight:400;
+            font-size:24px;
+        }
+
+    }
+    .paragraph--type--aladin {
+        padding:50px 0;
+        #aladin-lite-div {
+            margin:0 auto;
+        }
+    }
+    // VISTA NEWS & EVENTS //
+    .views-element-container {
+        .news {
+            .view-content {
+                margin: 120px auto 0 25px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:space-evenly;
+                width: 1200px;
+                max-width: 100%;
+            }
+            .views-row {flex: 1 0 33%;}
+        }
+    }
+    // TEASERS NEWS & EVENTS //
+    article.teaser {
+        width:290px;
+        padding:40px 0 100px 0;
+        margin-left:50px;
+        background: -moz-linear-gradient(top, rgba(35,95,135,1) 0%, rgba(35,95,135,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(35,95,135,1) 0%,rgba(35,95,135,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(35,95,135,1) 0%,rgba(35,95,135,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#235f87', endColorstr='#00235f87',GradientType=0 );
+        .teaser-wrapper {
+            position:relative;
+            right:50px;
+            .category {
+                @include genericlink($buttonlink);
+            }
+            .title {
+                padding:36px 0;
+                font-weight:900;
+                font-size:30px;
+            }
+            .info {
+                font-weight:300;
+                font-size:18px;
+                display:inline-block; width: 100%;
+                .wrapper {
+                    display:inline;
+                    display:inline-block;
+                    .date-item {
+                        display:inline;
+                        &:after {
+                            content:"-";
+                        }
+                    }
+                    .date-item:last-child {
+                        &:after {
+                            content:"";
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+    // TEASERS NEWS & EVENTS //
+}
+
+/* RRSS LINKS */
+.paragraph--type--rrss-link-item {
+    display: inline-block; margin: 0 0 0 10px;
+    .link {
+        display: inline-block;
+        a {display: inline-block; width: 30px; height: 30px; overflow: hidden; text-indent: -999px; background: transparent none no-repeat center / cover; transition: none;}
+        &.facebook a {
+            width: 15px;
+            @include getSocialIcon('facebook', 'white');
+            &:hover {@include getSocialIcon('facebook', $buttonlink);}
+        }
+        &.youtube a {
+            width: 32px;
+            @include getSocialIcon('youtube', 'white');
+            &:hover {@include getSocialIcon('youtube', $buttonlink);}
+        }
+        &.instagram a {
+            @include getSocialIcon('instagram', 'white');
+            &:hover {@include getSocialIcon('instagram', $buttonlink);}
+        }
+        &.twitter a {
+            @include getSocialIcon('twitter', 'white');
+            &:hover {@include getSocialIcon('twitter', $buttonlink);}
+        }
+    }
+}
+
+/** FORMS **/
+.form-background {
+    .form-item, .captcha, input {
+        position:relative;
+        z-index:1;
+    }
+    &:before {
+        @include defaultBackground();
+    }
+
+}
+.user-pass-reset {
+    text-align: center;
+    div {
+        padding:50px;
+        width:50vw;
+        margin:0 auto;
+    }
+    input {display:none;}
+}
+.view_news {
+  .view-filters {padding-top:60px;}
+  .views-exposed-form {
+    display: flex; width: 1000px; margin: 0 auto;
+    .form-item {
+      label {display:none;}
+      input, select {
+        width:90%; border: 0; border-radius: 0;border-bottom:1px solid $blanc; color:$blanc; background-color:$blaufons; padding: 10px; font-size: 20px; line-height: normal; outline: none;
+        &::placeholder {color:$blanc; opacity:0.8; font-size: 20px; line-height: normal;}
+      }
+      select {appearance: none; font-size: 20px; line-height: normal;}
+    }
+    input[type="submit"] {display: none;}
+    #edit-title {background: transparent url('../images/lupa-01.svg') no-repeat right center / 20px;&:hover{background-image:url('../images-lupa-01-hover.svg')}}
+  }
+}

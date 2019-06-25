@@ -1,0 +1,23 @@
+uuid: 3b3c58f9-9bfa-4ed4-a3c9-ea685f00ef1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: observatories
+label: Observatoris
+type: 'canonical_entities:taxonomy_term'
+pattern: 'observatory/[term:name]'
+selection_criteria:
+  39a7c520-6e96-41f4-b6b5-24a6e7230069:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      observatories: observatories
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 39a7c520-6e96-41f4-b6b5-24a6e7230069
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,29 @@
+uuid: 3494a0dc-c283-4241-96d8-32af275c8d20
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.logo
+    - field.field.block_content.logo.field_media
+  module:
+    - media_library
+id: block_content.logo.default
+targetEntityType: block_content
+bundle: logo
+mode: default
+content:
+  field_media:
+    type: media_library_widget
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

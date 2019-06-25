@@ -1,0 +1,27 @@
+uuid: 903bdcb7-bdb7-4837-b88f-9799ad37d34c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.home_inferior
+    - field.field.paragraph.principal.field_pr_display
+    - field.field.paragraph.principal.field_pr_paragraphs
+    - paragraphs.paragraphs_type.principal
+  module:
+    - entity_reference_revisions
+id: paragraph.principal.home_inferior
+targetEntityType: paragraph
+bundle: principal
+mode: home_inferior
+content:
+  field_pr_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: view_mode_selector
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_pr_display: true

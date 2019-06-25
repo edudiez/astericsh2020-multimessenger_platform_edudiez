@@ -1,0 +1,39 @@
+uuid: ed0338e4-3a6d-4f1c-b593-26f66db6fcab
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.video.field_media_tags
+    - field.field.media.video.field_media_video_file
+    - media.type.video
+_core:
+  default_config_hash: tDAk5WjHHzEBR0eK2k8ZlWr7Ji5lCSh_ddgoQnmfsCY
+id: media.video.media_library
+targetEntityType: media
+bundle: video
+mode: media_library
+content:
+  field_media_tags:
+    type: entity_reference_autocomplete_tags
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_video_file: true
+  path: true
+  status: true
+  uid: true

@@ -1,0 +1,49 @@
+uuid: d9df74f9-360c-45a2-bdd7-eefe6a0db516
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pr_paragraphs
+    - paragraphs.paragraphs_type.aladin
+    - paragraphs.paragraphs_type.link
+    - paragraphs.paragraphs_type.principal
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.views_eva
+  module:
+    - entity_reference_revisions
+id: paragraph.principal.field_pr_paragraphs
+field_name: field_pr_paragraphs
+entity_type: paragraph
+bundle: principal
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      text: text
+      views_eva: views_eva
+      link: link
+      aladin: aladin
+    target_bundles_drag_drop:
+      text:
+        enabled: true
+        weight: -11
+      views_eva:
+        enabled: true
+        weight: -10
+      link:
+        enabled: true
+        weight: -9
+      aladin:
+        enabled: true
+        weight: -8
+      principal:
+        weight: -7
+        enabled: false
+field_type: entity_reference_revisions

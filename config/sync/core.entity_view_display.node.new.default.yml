@@ -1,0 +1,54 @@
+uuid: b158b876-9e0a-435a-b2b2-ed3bb2a872d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.new.body
+    - field.field.node.new.field_event_category_n
+    - field.field.node.new.field_g_media
+    - field.field.node.new.field_new_date_n
+    - node.type.new
+  module:
+    - field_formatter
+    - text
+    - user
+id: node.new.default
+targetEntityType: node
+bundle: new
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_event_category_n:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_g_media:
+    type: field_formatter_with_inline_settings
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      field_name: field_media_image
+      label: hidden
+      type: image
+      settings:
+        image_style: cabecera
+        image_link: ''
+        svg_render_as_image: '1'
+        svg_attributes:
+          width: ''
+          height: ''
+    third_party_settings: {  }
+hidden:
+  field_new_date_n: true
+  links: true

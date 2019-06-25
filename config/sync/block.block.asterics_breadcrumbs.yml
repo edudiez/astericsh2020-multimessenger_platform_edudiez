@@ -1,0 +1,22 @@
+uuid: cb016422-ce5f-4c4a-a427-d7a4b67f2bd8
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - asterics
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: asterics_breadcrumbs
+theme: asterics
+region: header
+weight: -4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

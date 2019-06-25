@@ -1,0 +1,9 @@
+uuid: affa5ca5-1312-47c5-8c96-f4e76a9fa9bb
+langcode: en
+status: true
+dependencies: {  }
+id: rrss_link_item
+label: 'RRSS Link Item'
+icon_uuid: null
+description: 'Link a Red Social'
+behavior_plugins: {  }

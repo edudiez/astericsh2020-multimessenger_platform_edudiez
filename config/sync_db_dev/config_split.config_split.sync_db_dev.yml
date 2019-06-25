@@ -1,0 +1,19 @@
+uuid: 09abf221-09d9-46aa-b727-16d48fbeb387
+langcode: en
+status: true
+dependencies: {  }
+id: sync_db_dev
+label: sync_db_dev
+description: ''
+folder: ../config/sync_db_dev
+module:
+  config_filter: 0
+  config_split: 0
+  devel: 0
+  kint: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

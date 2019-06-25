@@ -1,0 +1,19 @@
+uuid: cce64add-b755-4026-8095-7b3dc4421920
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.field_observatory_address
+field_name: field_observatory_address
+entity_type: taxonomy_term
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

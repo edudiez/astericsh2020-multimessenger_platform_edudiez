@@ -1,0 +1,46 @@
+uuid: fb3cb1dd-7e8b-4c00-82b9-537ad5f55fec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_home_paragraphs
+    - node.type.page
+    - paragraphs.paragraphs_type.aladin
+  module:
+    - entity_reference_revisions
+id: node.page.field_home_paragraphs
+field_name: field_home_paragraphs
+entity_type: node
+bundle: page
+label: Paragraphs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      aladin: aladin
+    target_bundles_drag_drop:
+      aladin:
+        enabled: true
+        weight: 7
+      link:
+        weight: 8
+        enabled: false
+      principal:
+        weight: 9
+        enabled: false
+      rrss_link_item:
+        weight: 10
+        enabled: false
+      text:
+        weight: 11
+        enabled: false
+      views_eva:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

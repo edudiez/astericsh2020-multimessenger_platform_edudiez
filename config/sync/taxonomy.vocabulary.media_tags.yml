@@ -1,0 +1,9 @@
+uuid: 74758f57-80fc-4f30-978b-f7784d96043d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media Tags'
+vid: media_tags
+description: ''
+hierarchy: 0
+weight: 0

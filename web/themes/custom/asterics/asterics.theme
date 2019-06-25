@@ -1,0 +1,262 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\Entity\Role;
+use Drupal\views\Views;
+
+
+function asterics_user_login($account) {
+  // We want to redirect user on login.
+  $response = new RedirectResponse("db_member");
+  $response->send();
+  return;
+}
+
+/**
+ * Implements hook_form_user_login_form_alter().
+ */
+function asterics_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    /* MAQUETACIO */
+    $form['#attributes']['class'][] = 'container';
+    $form['#attributes']['class'][] = 'form-background';
+    // Alter login form and add own custom submit handler.
+    $config = \Drupal::config('rename_admin_paths.settings');
+    $user_path_value = $config->get('user_path_value');
+    $form['reset-password'] = array (
+        '#type' => 'item',
+        '#markup' => '<a href="/'.$user_path_value.'/password">'.t('Lost your password?').'</a>'
+    );
+}
+
+/**
+ * Custom submit handler for login form.
+ */
+function _asterics_user_login_form_submit($form, FormStateInterface $form_state) {
+  // Set redirect to login form.
+  $form_state->setRedirect('<front>'); // REDIRECT A L'AREA QUE ENS INTERESSI
+}
+
+function asterics_preprocess_html(&$variables) {
+
+    $current_path = \Drupal::service('path.current')->getPath();
+    $path_args = explode('/', $current_path);
+    if(count($path_args) == 3 && $path_args[1] == 'user' && is_numeric($path_args[2])) {
+        $variables['attributes']['class'][] = 'user-page';
+    }
+
+}
+
+function asterics_preprocess_page(&$variables) {
+
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  $variables['username'] = $user->getDisplayName() != 'Anonymous' ? $user->getDisplayName() : null;
+
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles(TRUE);
+  //if(in_array('profesional',$roles)) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $path_args = explode('/', $current_path);
+    if(count($path_args) == 2 && $path_args[1] == 'obervatories-map') {
+        // FORM PETICIO OBERVACIO //
+        $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('observacion');
+        $webform = $webform->getSubmissionForm();
+        $variables['observation_form'] = $webform;
+        // FORM CERCA DE OBSERVACIO //
+        $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('search_for_observation');
+        $webform = $webform->getSubmissionForm();
+        $variables['search_for_observation_form'] = $webform;
+       
+    }
+  //}
+    //****************** ALERTES ********************//
+    $alerts = \Drupal::service('demoasterics.alerts');
+    if($alerts->isSuscribed()) {
+        $variables['count_alerts']['#markup'] = '<span data-content="'.$alerts->getCountAlerts().'"></span>';
+        $variables['notifications']['#markup'] = $alerts->notifications();
+    }
+}
+
+function asterics_preprocess_views_view(&$variables) {
+     // TIMELINE //
+    $current_uri = \Drupal::request()->getRequestUri();
+    $query = explode('?',$current_uri);
+    if(count($query) == 2) {
+        $query = explode('=',$query[1]);
+        if(in_array('observatory',$query)) {
+            $variables['timeline'] = \Drupal::service('demoasterics.timeline')->getTimeline((count($query) == 2) ? $query[1] : NULL);
+        }
+    }
+}
+
+function asterics_preprocess_user(&$variables) {
+
+    // USER //
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $ovid = (isset($user->field_user_observatory->getValue()[0])) ? $user->field_user_observatory->getValue()[0]['target_id'] : null;
+    // FOLLOWING - FOLLOWERS - FAKE //
+    $vid = 'observatories';
+    $terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+    // LISTA OBSERVATORIES //
+    $subs_list = array();
+    $all_list = array();
+    foreach($terms as $term) {
+        $observatory =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid);
+        if($ovid != $term->tid) {
+            $all_list[] = $term->tid;
+            foreach ($observatory->get('field_observatory_suscribers')->getValue() as $uid) {
+                if ($uid['target_id'] == \Drupal::currentUser()->id()) {
+                    $subs_list[] = $term->tid;
+                }
+            }
+        }
+    }
+    $variables['following'] = count($subs_list);
+    $variables['all_observatories'] = count($all_list);
+    $list = views_embed_view('observatories_list_user_page','default',implode('+',$subs_list));
+    $variables['subscribed_list'] = $list;
+    $complete_list = views_embed_view('observatories_list_user_page','default',implode('+',$all_list));
+    $variables['observatories_list'] = $complete_list;
+    // MY OBSERVATORI - NEW OBSERVATORI PER A LA PAGINA USUARI PROFESSIONAL //
+    if($ovid) {
+        $my_observatory = views_embed_view('observatories_list_user_page','default',$ovid);
+        $variables['my_observatory'] = $my_observatory;
+    } else {
+        $ovterm = \Drupal\taxonomy\Entity\Term::create(array('vid' => 'observatories'));
+        $form = \Drupal::service('entity.form_builder')->getForm($ovterm);
+        $form['title'] = array (
+          '#type' => 'item',
+          '#markup' =>'<div class="extrabold-40">New Observatory</div>',
+          '#weight' => -99
+        );
+        //dump($form);
+        $form['name']['widget'][0]['value']['#attributes']['placeholder'] = 'Observatory name';
+        $form['name']['widget'][0]['value']['#title_display'] = 'invisible';
+        //dump($form);
+        $variables['observatory_form'] = $form; // {{ observatory_form }} //
+    }
+
+    // OBSERVATIONS - DEMANADES - ASKED FOR PER A LA PAGINA USUARI PROFESSIONAL //
+    $view = Views::getView('observacions_demanades');
+    $view->build('askedto');
+    $q = $view->query->query()->countQuery()->execute()->fetchAssoc();
+    $count = reset($q);
+    $variables['total_observations_askedto'] = $count;
+    $ovaskedto = views_embed_view('observacions_demanades','askedto',$user->id());
+    $variables['observations_askedto'] = $ovaskedto;
+
+    // OBSERVATIONS - DEMANADES - ASKED TO PER A LA PAGINA USUARI PROFESSIONAL //
+    $view = Views::getView('observacions_demanades');
+    $view->build('askedfor');
+    $q = $view->query->query()->countQuery()->execute()->fetchAssoc();
+    $count = reset($q);
+    $variables['total_observations_askedfor'] = $count;
+    $ovaskedfor = views_embed_view('observacions_demanades','askedfor',$user->id());
+    $variables['observations_askedfor'] = $ovaskedfor;
+
+    // FORM PETICIO OBERVACIO PER A LA PAGINA USUARI PROFESSIONAL //
+    $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('observacion');
+    $webform = $webform->getSubmissionForm();
+    $variables['observation_form'] = $webform;
+
+    // LISTAT DE NEWS & EVENTS PER A LA PAGINA USUARI PROFESSIONAL //
+    $view = Views::getView('news');
+    $view->build('user_news_events');
+    //$view->setArguments(array($user->id()));
+    $q = $view->query->query()->countQuery()->execute()->fetchAssoc();
+    $count = reset($q);
+    $variables['total_myevents'] = $count;
+    $myevents = views_embed_view('news','user_news_events',$user->id());
+    $variables['my_events'] = $myevents;
+
+    // FORM EVENT PER A LA PAGINA USUARI PROFESSIONAL //
+    $node = \Drupal\node\Entity\Node::create(['type' => 'event']);
+    $form = \Drupal::service('entity.form_builder')->getForm($node);
+    $form['#attributes']['class'][] = 'container';
+    $form['header'] = array (
+          '#type' => 'item',
+          '#markup' =>'<div class="extrabold-40">New Event</div>',
+          '#weight' => -99
+        );
+    $form['title']['widget'][0]['value']['#attributes']['placeholder'] = 'Title';
+    $form['title']['widget'][0]['value']['#title_display'] = 'invisible';
+    $variables['event_form'] = $form; // {{ event_form }} //
+}
+
+/*
+ * Implements hook_form_user_pass_reset_alter
+ * Permet un autoclick en validacio de mail i recuperacio de password
+ */
+
+function asterics_form_user_pass_reset_alter(&$form, FormStateInterface $form_state) {
+    /* MAQUETACIO */
+    $form['#attributes']['class'][] = 'container';
+    $form['#attributes']['class'][] = 'form-background';
+    $form['message']['#markup'] = '<div class="extrabold-40">'.t('You are been redirected to your reset password page, please wait...').'</div>';
+    unset($form['help']);
+    /* LOGIN DIRECTE */
+    $form['#attached']['drupalSettings']['passreset'] = TRUE;
+}
+
+/*
+ * Implements asterics_form_user_form_alter
+ */
+function asterics_form_user_form_alter(&$form, FormStateInterface $form_state) {
+    /* MAQUETACIO */
+    $form['#attributes']['class'][] = 'container';
+    $form['#attributes']['class'][] = 'form-background';
+    /* FORM CLEAN */
+    _asterics_user_form($form);
+}
+
+/**
+ * Implements hook_form_user_register_form_alter()
+ */
+function asterics_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    /* MAQUETACIO */
+    $form['#attributes']['class'][] = 'container';
+    $form['#attributes']['class'][] = 'form-background';
+    /* ROLS ELEGIBLES */
+    $form['roles'] = array (
+        '#type' => 'radios',
+        '#options' => array (
+            'amateur' => 'amateur',
+            'profesional' => 'profesional',
+          ),
+        '#default_value' => 'profesional',
+        '#markup' => t('Select your type of user'),
+        '#weight' => -99,
+    );
+    $form['roles']['amateur'] = array (
+      '#disabled' => TRUE,
+    );
+    $form['field_user_description']['#access'] = FALSE;
+
+    /*------------------------------------*
+      Se comenta por que al crear un usuario salta un error. Se oculta por css
+    ------------------------------------*/
+    // $form['field_user_photo']['#access'] = FALSE;
+    /* FORM CLEAN */
+    _asterics_user_form($form);
+
+}
+
+function asterics_preprocess_paragraph(&$variables) {
+    if ($variables['paragraph']->getType() == 'aladin'){
+       /* $variables['#attached']['library'][] = 'asterics/aladin';*/
+        $variables['#attached']['drupalSettings']['aladin'] = array (
+          'survey'=>$variables['content']['field_aladin_survey'][0]['#context']['value'],
+          'fov'=>$variables['content']['field_aladin_fov'][0]['#markup']
+        );
+    }
+}
+
+function _asterics_user_form(&$form) {
+    unset($form['account']['mail']['#description']);
+    unset($form['account']['name']['#description']);
+    $form['account']['notify']['#access'] = FALSE;
+    $form['field_user_observatory']['#access'] = FALSE;
+}
+
+function asterics_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+    $form['field_event_category_n_target_id']['#options']['All'] = t('- All observatories -');
+}

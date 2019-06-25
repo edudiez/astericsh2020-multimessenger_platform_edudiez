@@ -1,0 +1,10 @@
+uuid: bf71aceb-6366-4549-8c46-59c25520fd05
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.news
+label: 'News EVA'
+targetEntityType: paragraph
+cache: true

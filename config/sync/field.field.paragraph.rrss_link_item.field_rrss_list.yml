@@ -1,0 +1,21 @@
+uuid: 77065c8d-d9ae-4068-8486-523249d406fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rrss_list
+    - paragraphs.paragraphs_type.rrss_link_item
+  module:
+    - options
+id: paragraph.rrss_link_item.field_rrss_list
+field_name: field_rrss_list
+entity_type: paragraph
+bundle: rrss_link_item
+label: 'Red Social'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

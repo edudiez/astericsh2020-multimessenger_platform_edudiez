@@ -1,0 +1,25 @@
+uuid: c4da8081-c009-4353-9eb1-2d36ab6437e4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:logo:adb5dda4-7859-44dd-9912-d1a4f112af5b'
+  module:
+    - block_content
+  theme:
+    - asterics
+id: logo
+theme: asterics
+region: header
+weight: -10
+provider: null
+plugin: 'block_content:adb5dda4-7859-44dd-9912-d1a4f112af5b'
+settings:
+  id: 'block_content:adb5dda4-7859-44dd-9912-d1a4f112af5b'
+  label: Logo
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

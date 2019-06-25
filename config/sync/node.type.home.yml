@@ -1,0 +1,17 @@
+uuid: 5e8d5c09-6e3e-4795-b1ed-6de9c2b67860
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Home
+type: home
+description: 'Home del Site'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

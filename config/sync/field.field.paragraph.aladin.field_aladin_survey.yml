@@ -1,0 +1,21 @@
+uuid: 3028a1c2-fa6a-414a-a4c3-2aeb7509174a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_aladin_survey
+    - paragraphs.paragraphs_type.aladin
+id: paragraph.aladin.field_aladin_survey
+field_name: field_aladin_survey
+entity_type: paragraph
+bundle: aladin
+label: survey
+description: 'Identifier of the initial image survey. See this section https://aladin.u-strasbg.fr/AladinLite/doc/API/#image-layers for more details.'
+required: false
+translatable: false
+default_value:
+  -
+    value: P/DSS2/color
+default_value_callback: ''
+settings: {  }
+field_type: string

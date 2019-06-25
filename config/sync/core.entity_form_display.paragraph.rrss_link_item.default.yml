@@ -1,0 +1,33 @@
+uuid: afbd4bad-a3b9-4ce9-8611-8cd8757a1118
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.rrss_link_item.field_pr_link
+    - field.field.paragraph.rrss_link_item.field_rrss_list
+    - paragraphs.paragraphs_type.rrss_link_item
+  module:
+    - link
+id: paragraph.rrss_link_item.default
+targetEntityType: paragraph
+bundle: rrss_link_item
+mode: default
+content:
+  field_pr_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_rrss_list:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,14 @@
+uuid: 87bf7deb-ac48-4627-87d4-40b22881f689
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.profesional
+  module:
+    - user
+id: user_remove_role_action.profesional
+label: 'Remove the Profesional role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: profesional

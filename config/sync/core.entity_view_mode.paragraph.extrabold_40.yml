@@ -1,0 +1,10 @@
+uuid: 6149c954-43d6-400f-b19a-44523a86f5fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.extrabold_40
+label: 'Extrabold 40'
+targetEntityType: paragraph
+cache: true

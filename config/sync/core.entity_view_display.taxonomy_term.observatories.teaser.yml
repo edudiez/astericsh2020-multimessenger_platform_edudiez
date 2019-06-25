@@ -1,0 +1,109 @@
+uuid: f98f0f2f-c15f-4a2f-bbf2-c4f8ab6f9b48
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.teaser
+    - field.field.taxonomy_term.observatories.field_observatory_address
+    - field.field.taxonomy_term.observatories.field_observatory_geolocation
+    - field.field.taxonomy_term.observatories.field_observatory_observacio
+    - field.field.taxonomy_term.observatories.field_observatory_phone
+    - field.field.taxonomy_term.observatories.field_observatory_rrss
+    - field.field.taxonomy_term.observatories.field_observatory_website
+    - taxonomy.vocabulary.observatories
+  module:
+    - entity_reference_revisions
+    - geolocation
+    - link
+    - text
+    - webform
+id: taxonomy_term.observatories.teaser
+targetEntityType: taxonomy_term
+bundle: observatories
+mode: teaser
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_observatory_address:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_observatory_geolocation:
+    weight: 1
+    label: hidden
+    settings:
+      title: ''
+      set_marker: '1'
+      common_map: ''
+      info_text: ''
+      use_overridden_map_settings: 0
+      google_map_settings:
+        type: ROADMAP
+        zoom: '10'
+        minZoom: 0
+        maxZoom: 18
+        rotateControl: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        fullscreenControl: 0
+        scrollwheel: 1
+        disableDoubleClickZoom: 0
+        draggable: 1
+        height: 400px
+        width: 100%
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        style: ''
+        preferScrollingToZooming: 0
+        gestureHandling: auto
+    third_party_settings: {  }
+    type: geolocation_map
+    region: content
+  field_observatory_observacio:
+    weight: 7
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+  field_observatory_phone:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_observatory_rrss:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_observatory_website:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

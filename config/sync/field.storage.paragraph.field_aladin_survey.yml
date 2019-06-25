@@ -1,0 +1,21 @@
+uuid: 152b6e4f-b296-45b7-9a21-a514f84428f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_aladin_survey
+field_name: field_aladin_survey
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

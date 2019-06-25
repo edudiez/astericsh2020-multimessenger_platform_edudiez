@@ -1,0 +1,23 @@
+uuid: 13cbe0b7-c3bb-4bac-9410-ade7a3924657
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.regular_20
+    - field.field.paragraph.text.field_pr_display
+    - field.field.paragraph.text.field_pr_text_long
+    - paragraphs.paragraphs_type.text
+id: paragraph.text.regular_20
+targetEntityType: paragraph
+bundle: text
+mode: regular_20
+content:
+  field_pr_text_long:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  field_pr_display: true

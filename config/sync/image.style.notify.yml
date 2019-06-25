@@ -1,0 +1,15 @@
+uuid: 1ebdc9be-4325-4c12-a01a-49354fb30fea
+langcode: en
+status: true
+dependencies: {  }
+name: notify
+label: 'notify (50x50)'
+effects:
+  6af54c95-1ce1-4bc4-91c3-6fee91d416d9:
+    uuid: 6af54c95-1ce1-4bc4-91c3-6fee91d416d9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 50
+      height: 50
+      anchor: center-center

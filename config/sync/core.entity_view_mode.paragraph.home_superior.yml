@@ -1,0 +1,10 @@
+uuid: 1762bc66-0e3d-4496-b75f-194acd76f7b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.home_superior
+label: 'Home Superior'
+targetEntityType: paragraph
+cache: true

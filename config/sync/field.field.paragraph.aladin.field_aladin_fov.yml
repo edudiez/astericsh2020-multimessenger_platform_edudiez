@@ -1,0 +1,25 @@
+uuid: 06cac1fb-b803-4454-b490-680c22c59e23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_aladin_fov
+    - paragraphs.paragraphs_type.aladin
+id: paragraph.aladin.field_aladin_fov
+field_name: field_aladin_fov
+entity_type: paragraph
+bundle: aladin
+label: fov
+description: "Initial value of the visible field of view, in decimal degrees\r\nhttps://aladin.u-strasbg.fr/AladinLite/doc/API/"
+required: false
+translatable: false
+default_value:
+  -
+    value: 60
+default_value_callback: ''
+settings:
+  min: 0
+  max: 360
+  prefix: ''
+  suffix: ''
+field_type: integer

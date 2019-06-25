@@ -1,0 +1,8 @@
+uuid: 11c4ee81-eb19-4182-ad7a-19db4a8e4bff
+langcode: en
+status: true
+dependencies: {  }
+id: event_teaser_date
+label: 'Event Teaser Date'
+locked: false
+pattern: 'j\t\h F'

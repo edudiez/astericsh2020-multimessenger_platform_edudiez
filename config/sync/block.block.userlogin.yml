@@ -1,0 +1,20 @@
+uuid: 494c807e-45d4-472c-8e9e-d58dab16f3a8
+langcode: en
+status: false
+dependencies:
+  module:
+    - user
+  theme:
+    - asterics
+id: userlogin
+theme: asterics
+region: header
+weight: -6
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 05ebf0ce-d250-4f40-a392-16d1f9d41961
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_aladin_fov
+field_name: field_aladin_fov
+entity_type: paragraph
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

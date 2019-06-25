@@ -1,0 +1,20 @@
+uuid: 5ab8109b-d79c-4faa-be3e-5d55e4ef42cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - webform
+id: taxonomy_term.field_observatory_observacio
+field_name: field_observatory_observacio
+entity_type: taxonomy_term
+type: webform
+settings:
+  target_type: webform
+module: webform
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

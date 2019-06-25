@@ -1,0 +1,9 @@
+uuid: 5812281a-bdae-485a-afbf-fda21166f45e
+langcode: en
+status: true
+dependencies: {  }
+id: amateur
+label: Amateur
+weight: 4
+is_admin: null
+permissions: {  }

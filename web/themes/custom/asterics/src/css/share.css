@@ -1,0 +1,13 @@
+.share { display: inline-block; margin-top: 10px; }
+
+.share p { display: inline-block; margin: 0 20px 0 0; vertical-align: middle; font-size: 16px; width: auto; }
+
+.share .a2a_kit { display: inline-block; vertical-align: middle; }
+
+.share .a2a_kit .a2a_svg { background: transparent !important; }
+
+.share .a2a_kit .a2a_svg path { fill: white; }
+
+.share.black .a2a_kit .a2a_svg path { fill: black; }
+
+/*# sourceMappingURL=maps/share.css.map */

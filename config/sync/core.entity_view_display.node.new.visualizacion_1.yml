@@ -1,0 +1,41 @@
+uuid: a6fd4515-f83d-4093-bd9c-50beae3e4bca
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.visualizacion_1
+    - field.field.node.new.body
+    - field.field.node.new.field_event_category_n
+    - field.field.node.new.field_g_media
+    - field.field.node.new.field_new_date_n
+    - node.type.new
+  module:
+    - field_formatter
+    - user
+id: node.new.visualizacion_1
+targetEntityType: node
+bundle: new
+mode: visualizacion_1
+content:
+  field_g_media:
+    type: field_formatter_with_inline_settings
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      field_name: field_media_image
+      label: hidden
+      type: image
+      settings:
+        image_style: medium
+        image_link: ''
+        svg_render_as_image: '1'
+        svg_attributes:
+          width: ''
+          height: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_event_category_n: true
+  field_new_date_n: true
+  links: true

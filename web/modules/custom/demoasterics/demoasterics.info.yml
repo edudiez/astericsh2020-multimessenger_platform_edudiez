@@ -1,0 +1,6 @@
+name: Asterics
+description: Asterics Demo Module
+package: Custom
+type: module
+version: 1.0
+core: 8.x

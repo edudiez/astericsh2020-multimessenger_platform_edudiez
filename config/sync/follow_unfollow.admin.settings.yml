@@ -1,0 +1,17 @@
+follow_unfollow_admin_settings:
+  type: config_object
+  label: 'Follow Unfollow Admin Config'
+  mapping: null
+  follow_unfollow:
+    content_type: ''
+    vocabulary_type: ''
+    user: true
+  follow_unfollow_email:
+    follow:
+      subject: ''
+      body: ''
+    unfollow:
+      subject: ''
+      body: ''
+_core:
+  default_config_hash: 9d1rIx6X-fu2uOoyS3w2YMl9BjYlOxUGgqkotj4J6K4

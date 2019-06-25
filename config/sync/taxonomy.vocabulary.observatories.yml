@@ -1,0 +1,9 @@
+uuid: a6111bba-a513-4764-9363-e5faeb3d6d21
+langcode: en
+status: true
+dependencies: {  }
+name: Observatoris
+vid: observatories
+description: 'Llistat d''Observatoris'
+hierarchy: 0
+weight: 0

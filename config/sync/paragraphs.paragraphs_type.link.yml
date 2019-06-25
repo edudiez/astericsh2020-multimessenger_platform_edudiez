@@ -1,0 +1,9 @@
+uuid: d7f4feff-1272-420f-b597-feaefe27e7eb
+langcode: en
+status: true
+dependencies: {  }
+id: link
+label: 'Link Item'
+icon_uuid: null
+description: 'Paragraph tipus Enllaç'
+behavior_plugins: {  }

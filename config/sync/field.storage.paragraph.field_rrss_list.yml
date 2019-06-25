@@ -1,0 +1,33 @@
+uuid: 0d16162d-687c-4b1c-9544-69e50ad5aca8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_rrss_list
+field_name: field_rrss_list
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: twitter
+      label: Twitter
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: instagram
+      label: Instagram
+    -
+      value: youtube
+      label: Youtube
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

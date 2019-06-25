@@ -1,0 +1,31 @@
+uuid: 1f5d0a38-3bea-438b-b7a4-e375e928415b
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - asterics
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: asterics_local_tasks
+theme: asterics
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

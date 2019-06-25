@@ -1,0 +1,10 @@
+uuid: 2dae474a-6adf-428d-978d-2ff1e371fe50
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.regular_20
+label: 'Regular 20'
+targetEntityType: paragraph
+cache: true

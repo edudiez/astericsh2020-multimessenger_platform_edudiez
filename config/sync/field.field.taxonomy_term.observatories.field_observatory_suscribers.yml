@@ -1,0 +1,28 @@
+uuid: e8c9e0a8-31c7-46c3-b44a-af63ba280bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_observatory_suscribers
+    - taxonomy.vocabulary.observatories
+id: taxonomy_term.observatories.field_observatory_suscribers
+field_name: field_observatory_suscribers
+entity_type: taxonomy_term
+bundle: observatories
+label: Suscribers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

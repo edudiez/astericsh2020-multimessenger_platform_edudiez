@@ -1,0 +1,26 @@
+uuid: 9eb2cad9-d10c-4729-9ace-d2bdd1f71d86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_schedule_n
+    - node.type.event
+  module:
+    - datetime_range
+id: node.event.field_event_schedule_n
+field_name: field_event_schedule_n
+entity_type: node
+bundle: event
+label: Hours
+description: 'Horari de l''esdeveniment'
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+    default_end_date_type: now
+    default_end_date: now
+default_value_callback: ''
+settings: {  }
+field_type: daterange

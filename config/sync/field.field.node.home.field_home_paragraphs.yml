@@ -1,0 +1,43 @@
+uuid: c534b3a3-b1a5-439a-b354-bc5b1e599654
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_home_paragraphs
+    - node.type.home
+    - paragraphs.paragraphs_type.principal
+  module:
+    - entity_reference_revisions
+id: node.home.field_home_paragraphs
+field_name: field_home_paragraphs
+entity_type: node
+bundle: home
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      principal: principal
+    target_bundles_drag_drop:
+      principal:
+        enabled: true
+        weight: -11
+      aladin:
+        weight: -10
+        enabled: false
+      link:
+        weight: -9
+        enabled: false
+      text:
+        weight: -8
+        enabled: false
+      views_eva:
+        weight: -7
+        enabled: false
+field_type: entity_reference_revisions

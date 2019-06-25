@@ -1,0 +1,27 @@
+uuid: e49b5588-faab-434a-855e-81bed81396ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link.field_pr_link
+    - paragraphs.paragraphs_type.link
+  module:
+    - link
+id: paragraph.link.default
+targetEntityType: paragraph
+bundle: link
+mode: default
+content:
+  field_pr_link:
+    weight: 11
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

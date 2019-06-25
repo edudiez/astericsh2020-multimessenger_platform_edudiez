@@ -1,0 +1,25 @@
+uuid: 6063114a-1c47-433b-82b1-1f225c15451e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:756c2136-9a3b-4db3-a211-422bdd7cd30a'
+  module:
+    - block_content
+  theme:
+    - asterics
+id: copyright
+theme: asterics
+region: footer
+weight: -8
+provider: null
+plugin: 'block_content:756c2136-9a3b-4db3-a211-422bdd7cd30a'
+settings:
+  id: 'block_content:756c2136-9a3b-4db3-a211-422bdd7cd30a'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

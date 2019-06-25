@@ -1,0 +1,14 @@
+uuid: b2cd6f35-394f-438d-9640-94a88008b9dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.amateur
+  module:
+    - user
+id: user_remove_role_action.amateur
+label: 'Remove the Amateur role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: amateur

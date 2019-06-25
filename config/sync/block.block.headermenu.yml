@@ -1,0 +1,37 @@
+uuid: 80feb820-6553-46b5-bf77-4dc8edbd6d55
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.header-menu
+  module:
+    - system
+    - user
+  theme:
+    - asterics
+id: headermenu
+theme: asterics
+region: header
+weight: -8
+provider: null
+plugin: 'system_menu_block:header-menu'
+settings:
+  id: 'system_menu_block:header-menu'
+  label: 'Header Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: '/user/reset/*'
+    negate: true
+    context_mapping: {  }

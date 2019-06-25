@@ -1,0 +1,22 @@
+uuid: ac837656-1f75-443e-ab32-969058b84b60
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - asterics
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: asterics_content
+theme: asterics
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,74 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+
+<div{{ attributes.addClass('taxonomy','observatory',view_mode) }}>
+    {% if view_mode == 'user_page_view' %}
+        <div class="imatge">
+          <div class="background" style="background-image: url({{ content.field_observatory_fotografia|field_value }})"></div>
+        </div>
+        <div class="informacion">
+            <div class="title"><h2>{{ name|field_value }}</h2>
+                <div id="suscription-wrapper" data-tid="{{ term.id }}">
+                  {{ suscription }}
+                </div>
+            </div>
+            {{ content.description }}
+            {{ content.field_observatory_address }}
+            {{ content.field_observatory_phone }}
+            {{ content.field_observatory_website }}
+
+        </div>
+    {% else %}
+      <div class="container">
+          <div class="cols">
+              <div class="col">
+                  {{ title_prefix }}
+                    <h2>{{ name|field_value }}</h2>
+                  {{ title_suffix }}
+                  {{ content.description }}
+                  <div id="suscription-wrapper" data-tid="{{ term.id }}">
+                  {{ suscription }}
+                  </div>
+              </div>
+              <div class="col">
+                  {{ content.field_observatory_rrss }}
+                  {{ content.field_observatory_website }}
+              </div>
+          </div>
+          <div class="box {{ (content.field_observatory_observacio|render|striptags('<form>')|trim) ? 'hasform' : 'notform' }} ">
+              <div class="address">
+                  <h3> {{ 'Location & contact'|t }} </h3>
+                  {{ content.field_observatory_fotografia }}
+                  {{ content.field_observatory_address }}
+                  {{ content.field_observatory_phone }}
+                  {{ content.field_observatory_website }}
+              </div>
+              {{ content|without('description','field_observatory_rrss','field_observatory_fotografia','field_observatory_website','field_observatory_address','field_observatory_phone') }}
+              {{ attach_library('asterics/flexslider') }}
+          </div>
+      </div>
+    {% endif %}
+</div>

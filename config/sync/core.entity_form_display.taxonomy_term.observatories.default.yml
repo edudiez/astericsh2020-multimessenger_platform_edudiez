@@ -1,0 +1,130 @@
+uuid: 9188c563-7834-4ecb-ab66-42c5f7d477de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.observatories.field_observatory_address
+    - field.field.taxonomy_term.observatories.field_observatory_fotografia
+    - field.field.taxonomy_term.observatories.field_observatory_geolocation
+    - field.field.taxonomy_term.observatories.field_observatory_observacio
+    - field.field.taxonomy_term.observatories.field_observatory_phone
+    - field.field.taxonomy_term.observatories.field_observatory_rrss
+    - field.field.taxonomy_term.observatories.field_observatory_suscribers
+    - field.field.taxonomy_term.observatories.field_observatory_website
+    - image.style.medium
+    - taxonomy.vocabulary.observatories
+  module:
+    - geolocation
+    - link
+    - paragraphs
+    - svg_image
+    - text
+id: taxonomy_term.observatories.default
+targetEntityType: taxonomy_term
+bundle: observatories
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_observatory_address:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_observatory_fotografia:
+    weight: 1
+    settings:
+      preview_image_style: medium
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_observatory_geolocation:
+    weight: 2
+    settings:
+      default_longitude: '41.6868006'
+      default_latitude: '0.6247805'
+      google_map_settings:
+        height: 400px
+        width: 100%
+        type: ROADMAP
+        zoom: '4'
+        maxZoom: 18
+        minZoom: 0
+        zoomControl: 1
+        fullscreenControl: 1
+        gestureHandling: auto
+        draggable: 1
+        style: ''
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        mapTypeControl: 0
+        streetViewControl: 0
+        rotateControl: 0
+        scrollwheel: 0
+        preferScrollingToZooming: 0
+        disableDoubleClickZoom: 0
+      auto_client_location: '0'
+      auto_client_location_marker: '0'
+      allow_override_map_settings: 0
+      populate_address_field: ''
+      target_address_field: null
+      explicite_actions_address_field: ''
+    third_party_settings: {  }
+    type: geolocation_googlegeocoder
+    region: content
+  field_observatory_phone:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_observatory_rrss:
+    type: entity_reference_paragraphs
+    weight: 7
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_observatory_suscribers:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_observatory_website:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_observatory_observacio: true
+  path: true

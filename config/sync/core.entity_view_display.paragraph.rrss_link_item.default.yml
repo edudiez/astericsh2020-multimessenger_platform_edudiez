@@ -1,0 +1,36 @@
+uuid: 48e93ea3-c294-4b29-abba-386736c4cf62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.rrss_link_item.field_pr_link
+    - field.field.paragraph.rrss_link_item.field_rrss_list
+    - paragraphs.paragraphs_type.rrss_link_item
+  module:
+    - link
+    - options
+id: paragraph.rrss_link_item.default
+targetEntityType: paragraph
+bundle: rrss_link_item
+mode: default
+content:
+  field_pr_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_rrss_list:
+    type: list_key
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

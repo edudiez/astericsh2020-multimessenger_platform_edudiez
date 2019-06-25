@@ -1,0 +1,26 @@
+uuid: f2b0e0fd-6d28-42b8-b00a-ad940a209d2f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access devel information'
+  - 'access kint'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'create terms in media_tags'
+  - 'delete own webform submission'
+  - 'delete terms in media_tags'
+  - 'edit terms in media_tags'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'view any webform submission'
+  - 'view media'

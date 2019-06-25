@@ -1,0 +1,30 @@
+uuid: d1438e8e-7be6-4a7e-af2a-c6390e168a58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text.field_pr_display
+    - field.field.paragraph.text.field_pr_text_long
+    - paragraphs.paragraphs_type.text
+  module:
+    - view_mode_selector
+id: paragraph.text.default
+targetEntityType: paragraph
+bundle: text
+mode: default
+content:
+  field_pr_display:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: view_mode_selector
+    region: content
+  field_pr_text_long:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

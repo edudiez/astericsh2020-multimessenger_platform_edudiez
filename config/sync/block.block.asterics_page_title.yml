@@ -1,0 +1,27 @@
+uuid: df71b7ba-a0ef-48a8-8ee9-fe17bdb8ba6b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - asterics
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: asterics_page_title
+theme: asterics
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/user/reset/*\r\n/user/*\r\n/observatory/*\r\n/admin/structure/taxonomy/manage/observatories/add\r\n/new/*\r\n/event/*"
+    negate: true
+    context_mapping: {  }

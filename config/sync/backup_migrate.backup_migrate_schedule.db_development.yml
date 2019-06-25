@@ -1,0 +1,13 @@
+uuid: 51bb5f29-048f-44b5-9c11-031734483489
+langcode: en
+status: true
+dependencies: {  }
+id: db_development
+label: 'DB (Development)'
+enabled: true
+keep: 10
+period: 86400
+cron: null
+source_id: default_db
+destination_id: development_backups_directory
+settings_profile_id: null

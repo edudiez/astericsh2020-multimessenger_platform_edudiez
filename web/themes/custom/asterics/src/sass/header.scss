@@ -1,0 +1,218 @@
+@import "mixins.scss";
+header[role="banner"] {
+    background-color:$blaufons;
+    height:84px;
+    .container {
+        padding:15px 35px 0 70px;
+    }
+    .user_box {
+        display: inline-block; vertical-align: middle; position: relative; font-size: 0;
+        .user_profile {
+            display: inline-block; vertical-align: middle; margin-right: 35px; position: relative; font-size: 14px;
+            a {
+                transition: none;
+                &:before {content: ''; background: transparent none no-repeat center; @include getSocialIcon('user_profile', 'white'); display: inline-block; vertical-align: middle; width: 35px; height: 35px; margin-right: 10px;}
+                &:hover {
+                    color: $buttonlink;
+                    &:before {@include getSocialIcon('user_profile', $buttonlink);}
+                }
+            }
+        }
+        .user_logout {
+            display: inline-block; vertical-align: middle; margin-right: 35px; position: relative; font-size: 14px;
+            a {
+                transition: none;
+                &:before {content: ''; background: transparent none no-repeat center; @include getSocialIcon('log_out', 'white'); display: inline-block; vertical-align: middle; width: 35px; height: 35px; margin-right: 10px;}
+                &:hover {
+                    color: $buttonlink;
+                    &:before {@include getSocialIcon('log_out', $buttonlink);}
+                }
+            }
+        }
+        .user_notify {
+            display: inline-block; vertical-align: middle;
+            span {
+                display: inline-block; width: 33px; height: 33px; @include getSocialIcon('user_notify', 'white'); cursor: pointer; margin-right: 35px; position: relative;
+                &:hover {@include getSocialIcon('user_notify', $buttonlink);}
+                &:before {content: attr(data-content); position: absolute; right: 0; top: -10px; background: $buttonlink; color: white; font-size: 9px; font-weight: 400; border-radius: 100%; padding: 5px; line-height: 6px;}
+            }
+            .notifications {display: none; position: absolute; left: -65%; top: 45px; width: 220%; background-color: $gris_claro; color: white;  padding: 15px; border-radius: 13px 13px 0 0; text-align: center; z-index: 9;}
+            ul {width: 100%;}
+            li {
+                padding: 20px 10px 20px 0; margin-bottom: 0px; border-bottom: 1px solid white; font-size: 0;
+                /*
+                &.observatory {background-color: $buttonlink;}
+                &.aproved{background-color: $aproved;}
+                &.new {background-color: $azul_claro;}
+                */
+                &:nth-child(1) {border-radius: 13px 13px 0 0;}
+                &:nth-last-child(1) {/*border-radius: 0 0 13px 13px;*/ border-bottom: 0;}
+            }
+            .box {display: inline-block; vertical-align: middle; width: calc(100% - 90px); text-align: left;}
+            .image {width: 90px; text-align: left; padding: 0 0 0 10px; display: inline-block; vertical-align: middle;}
+            img {border-radius: 100%; border: 2px solid white;}
+            .category, .date {font-size: 14px; font-weight: 400;}
+            .category, .title {margin-bottom: 5px;}
+            .title {font-size: 16px; font-weight: 700;}
+            a.button {width: auto; padding: 10px 25px; border-radius: 20px; background-color: $buttonlink; color: white; text-transform: uppercase; font-family: 'rob_l'; display: inline-block; margin: 40px 0 20px 0; cursor: pointer; font-size: 14px;}
+        }
+    }
+    #block-logo {
+        float:left;
+        img {
+            width:120px;
+        }
+    }
+    #block-headermenu, #block-asterics-account-menu {
+        float:right;
+        padding-right:25px;
+        ul {
+            margin-top:10px;
+        }
+        li {
+            display:inline;
+            a{
+                font-size:14px;
+                margin:0 10px;
+                border:1px solid $blanc;
+                padding:10px 20px;
+                border-radius:20px;
+                &:hover {
+                    color:$buttonlink;
+                    border:1px solid $buttonlink;
+                }
+            }
+        }
+    }
+    #block-profesionalmenu {
+        float:left;
+        ul {
+            margin-top:10px;
+        }
+        li{
+            display:inline;
+            a {
+                font-size:16px;
+                padding:6px;
+            }
+            .disabled {
+                display:none;
+            }
+            .highlighted {
+                font-weight:700;
+            }
+        }
+    }
+    .right {
+        clear:right;
+        float: right;
+        padding-top: 12px;
+        position: relative;
+        z-index: 99;
+        > .box {position: relative;}
+        .top {
+            display: inline-block; vertical-align: middle;
+            .ico-search {
+                background:url($images+"lupa-01.svg") no-repeat 0 0 transparent;
+                width:24px;
+                height:30px;
+                cursor:pointer;display:inline-block; vertical-align:middle;
+                &:hover{background-image:url('../images/lupa-01-hover.svg')}
+            }
+            .ico-menu {
+                cursor:pointer;display:inline-block; vertical-align:middle; margin-left:20px; width: 35px; height: 20px; position: relative; -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); -webkit-transform-origin: center; transform-origin: center;
+                span {
+                    height: 2px;
+                    width: 100%;
+                    background: $blanc;
+                    border-radius: 5px;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    -webkit-transition: inherit;
+                    transition: inherit;
+                    -webkit-transform: inherit;
+                    transform: inherit;
+                    &:nth-child(1) {}
+                    &:nth-child(2) {-webkit-transform: translateY(8px); transform: translateY(8px);}
+                    &:nth-child(3) {-webkit-transform: translateY(16px); transform: translateY(16px);}
+                }
+                
+                &:hover {
+                    span {
+                        background: $buttonlink;
+                    }
+                }
+                
+                &.active {
+                    span {
+                        width: 100%!important;
+                        &:nth-child(1),
+                            &:nth-child(2) { -webkit-transform: translateY(9px) rotate(45deg); transform: translateY(9px) rotate(45deg);}
+                        &:nth-child(3) {-webkit-transform: translateY(9px) rotate(-45deg); transform: translateY(9px) rotate(-45deg);}
+                    }
+                }
+            }
+        }
+    }
+    #main-menu {
+        display:none;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 100px;
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 100px);
+        top: 100px;
+        /* padding-top: 46px; */
+        background-color: $blaufons;
+        z-index: 99;
+        body.toolbar-fixed & {top: 200px;}
+        &:before {@include defaultBackground();}
+        > div {position: relative; z-index: 1;}
+        #block-mainnavigation .menu {
+            margin:0 auto;
+            color:$blanc;
+            font-size:2em;
+            font-weight:700;
+            text-align:center;
+            li {
+                width:auto;
+                margin: 20px 0;
+            }
+        }
+        #block-observationmenu {
+            ul.menu li {
+                text-align: center;
+                a {width: auto; padding: 15px 30px; border-radius: 30px; background-color: $buttonlink; color: white; text-transform: uppercase; font-family: 'rob_l'; display: inline-block; margin-top: 40px; font-size: 14px; font-weight: 300;}
+            }
+        }
+        #block-sociallinks {
+            margin-top: 70px;
+            .body {
+                text-align: center;
+                a {overflow: hidden; text-indent: -999px; display: inline-block; width: 20px; height: 20px; background: transparent none no-repeat center;}
+                li {
+                    display: inline-block; margin: 0 10px;
+                    &:nth-child(1) a {
+                        transition: none;
+                        @include getSocialIcon('twitter', 'white');
+                        &:hover {@include getSocialIcon('twitter', $buttonlink);}
+                    }
+                    &:nth-child(2) a {
+                        transition: none;
+                        @include getSocialIcon('linkedin', 'white');
+                        &:hover {@include getSocialIcon('linkedin', $buttonlink);}
+                    }
+                    &:nth-child(3) a {
+                        transition: none;
+                        @include getSocialIcon('vimeo', 'white');
+                        &:hover {@include getSocialIcon('vimeo', $buttonlink);}
+                    }
+                }
+            }
+        }
+    }
+
+}

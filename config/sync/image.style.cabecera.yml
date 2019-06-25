@@ -1,0 +1,15 @@
+uuid: 4185c006-56ae-476c-98a4-3e9dc0ead56f
+langcode: en
+status: true
+dependencies: {  }
+name: cabecera
+label: Cabecera
+effects:
+  deaa01a1-2f8f-4e7b-9676-be0840a9c4e9:
+    uuid: deaa01a1-2f8f-4e7b-9676-be0840a9c4e9
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: false

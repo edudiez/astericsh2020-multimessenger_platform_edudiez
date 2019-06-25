@@ -1,0 +1,9 @@
+uuid: 77f2a613-1a79-493b-897a-a4a08e03fe31
+langcode: en
+status: true
+dependencies: {  }
+id: principal
+label: Principal
+icon_uuid: null
+description: 'Paragraph principal agregador'
+behavior_plugins: {  }

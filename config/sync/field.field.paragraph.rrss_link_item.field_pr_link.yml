@@ -1,0 +1,23 @@
+uuid: a97ddf95-76ac-4e55-8775-d7eb3d8b2b79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pr_link
+    - paragraphs.paragraphs_type.rrss_link_item
+  module:
+    - link
+id: paragraph.rrss_link_item.field_pr_link
+field_name: field_pr_link
+entity_type: paragraph
+bundle: rrss_link_item
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

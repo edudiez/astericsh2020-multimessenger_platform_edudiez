@@ -1,0 +1,9 @@
+uuid: 02163a80-4430-4c45-9e6a-68c2a19cf8a4
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+icon_uuid: null
+description: 'Paragraph de Text sense format'
+behavior_plugins: {  }

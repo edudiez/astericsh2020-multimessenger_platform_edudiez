@@ -1,0 +1,33 @@
+uuid: 20d90fc5-b2e6-491d-8502-a1bf40cbc8d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text.field_pr_display
+    - field.field.paragraph.text.field_pr_text_long
+    - paragraphs.paragraphs_type.text
+  module:
+    - view_mode_selector
+id: paragraph.text.default
+targetEntityType: paragraph
+bundle: text
+mode: default
+content:
+  field_pr_display:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: view_mode_selector_radios
+    region: content
+  field_pr_text_long:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

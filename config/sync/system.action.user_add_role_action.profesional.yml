@@ -1,0 +1,14 @@
+uuid: 5d8f8c0b-5f44-45d9-b709-19be4da177cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.profesional
+  module:
+    - user
+id: user_add_role_action.profesional
+label: 'Add the Profesional role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: profesional
